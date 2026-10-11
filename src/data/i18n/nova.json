@@ -1,0 +1,668 @@
+{
+  "pl": {
+    "page": {
+      "title": "Majeesh S, Aerospace Engineer",
+      "description": "Aerospace Engineering graduate specialising in CFD, thermal and structural analysis with ANSYS Fluent, Workbench and APDL.",
+      "heading": "Majeesh S, Aerospace Engineer"
+    },
+    "demoBanner": {
+      "label": "",
+      "downloadLabel": "",
+      "downloadHref": "",
+      "customizeLabel": "",
+      "customizeHref": ""
+    },
+    "navigation": {
+      "menu": [
+        {
+          "label": "About",
+          "href": "/#zespol"
+        },
+        {
+          "label": "Skills",
+          "href": "/#uslugi"
+        },
+        {
+          "label": "Projects",
+          "href": "/#realizacje"
+        },
+        {
+          "label": "Designs",
+          "href": "/#designs"
+        },
+        {
+          "label": "Files",
+          "href": "/files/"
+        }
+      ],
+      "cta": {
+        "label": "Contact me",
+        "hoverLabel": "Let's talk",
+        "href": "#kontakt"
+      },
+      "aria": {
+        "menuOpen": "Open navigation menu",
+        "menuClose": "Close menu",
+        "menuExpand": "Expand submenu",
+        "navMain": "Main navigation",
+        "drawer": "Navigation menu"
+      },
+      "languageLabel": "Choose language"
+    },
+    "sections": {
+      "nova-hero-wireframe": {
+        "eyebrow": "CFD / THERMAL / STRUCTURAL ANALYSIS",
+        "heading": "Hi, I'm Majeesh, an",
+        "headingAccent": "aerospace engineer",
+        "description": "Aerospace Engineering graduate with a strong foundation in CFD, thermal and structural analysis. Passionate about applying simulation and design optimisation to solve complex aerospace challenges.",
+        "primaryCTA": {
+          "label": "Contact me",
+          "href": "#kontakt"
+        },
+        "secondaryCTA": {
+          "label": "Download resume",
+          "href": "/assets/resume/Majeeshresumeaerospace.pdf"
+        },
+        "trustedBy": "Interned at",
+        "trustItems": [
+          "CABS, DRDO",
+          "BRAHMASTRA",
+          "GARUDA AEROSPACE"
+        ],
+        "image": "/assets/images/profile/profile-pic.webp",
+        "imageAlt": "Portrait of Majeesh S at a laptop",
+        "stats": [
+          {
+            "value": "5",
+            "label": "Engineering projects"
+          },
+          {
+            "value": "4",
+            "label": "Aerospace internships"
+          },
+          {
+            "value": "10+",
+            "label": "CAD, CAE and software tools"
+          },
+          {
+            "value": "2026",
+            "label": "B.Tech, Karunya Institute"
+          }
+        ]
+      },
+      "nova-projects": {
+        "title": "Engineering projects",
+        "description": "Simulation, testing and analysis work across CFD, heat transfer, structures, aerodynamics and image processing.",
+        "linkLabel": "Discuss a project",
+        "linkHref": "#kontakt",
+        "items": [
+          {
+            "category": "CFD / Heat transfer",
+            "title": "Thermal performance of an automobile radiator using nanofluids"
+          },
+          {
+            "category": "CFD / ANSYS Fluent",
+            "title": "CFD analysis of jet impingement on deflector configurations"
+          },
+          {
+            "category": "Thermal / Structural",
+            "title": "Thermal and structural analysis of a SATCOM radome"
+          },
+          {
+            "category": "Aerodynamics / Testing",
+            "title": "Manufacturing and subsonic wind tunnel testing of a NACA 64-212 airfoil"
+          },
+          {
+            "category": "Python / Image processing",
+            "title": "Automated crack detection using inverse colour grading"
+          }
+        ]
+      },
+      "nova-services": {
+        "title": "Skills and expertise",
+        "description": "Simulation, design and analysis tools I use to take a component from CAD model to validated result.",
+        "linkLabel": "See my projects",
+        "linkHref": "#realizacje",
+        "items": [
+          {
+            "number": "01.",
+            "icon": "wind",
+            "title": "Computational Fluid Dynamics",
+            "description": "Flow, pressure and temperature studies in ANSYS Fluent, from jet impingement on deflectors to nanofluid-cooled radiators."
+          },
+          {
+            "number": "02.",
+            "icon": "thermometer-hot",
+            "title": "Thermal and structural analysis",
+            "description": "Heat transfer and stress analysis with ANSYS Workbench and APDL, evaluating components under thermal and mechanical loads."
+          },
+          {
+            "number": "03.",
+            "icon": "cube",
+            "title": "CAD design",
+            "description": "3D modelling and drafting in AutoCAD, CATIA, SolidWorks and Fusion 360, with a focus on aerospace propulsion and airframe parts."
+          },
+          {
+            "number": "04.",
+            "icon": "code",
+            "title": "Programming and tools",
+            "description": "Python fundamentals for image processing, Power BI and Microsoft Excel for data, plus RPA with UiPath and video editing."
+          }
+        ]
+      },
+      "nova-team": {
+        "title": "About me",
+        "description": "I am an Aerospace Engineering graduate (B.Tech, Karunya Institute of Technology and Sciences, 2022 to 2026). Through four internships I have worked on rocket propulsion, drone design and piloting, and CFD and thermal analysis for aerospace communication systems.",
+        "image": "/assets/images/designs/catia-drone-design-2.webp",
+        "imageAlt": "Quadcopter drone modelled in CATIA by Majeesh S",
+        "checks": [
+          "CFD and Thermal Analysis for Aerospace Communication Systems, CABS (DRDO)",
+          "Rocket Propulsion and Drone Design Internships, Brahmastra Aerospace Systems",
+          "Drone Pilot Internship, Garuda Aerospace"
+        ],
+        "teamCount": "4",
+        "teamLabel": "aerospace internships",
+        "teamAriaLabel": "Internships",
+        "teamAvatars": [],
+        "buttonLabel": "Download resume",
+        "buttonHref": "/assets/resume/Majeeshresumeaerospace.pdf"
+      },
+      "faq3": {
+        "title": "Quick facts",
+        "description": "Answers to the questions recruiters and collaborators ask most often.",
+        "tagline": "FAQ",
+        "items": [
+          {
+            "q": "What is your educational background?",
+            "a": "B.Tech in Aerospace Engineering from Karunya Institute of Technology and Sciences (2022 to 2026). Schooling at St. Joseph's Matric Hr. Sec. School (2008 to 2022)."
+          },
+          {
+            "q": "Where have you interned?",
+            "a": "CABS (DRDO) for CFD and thermal analysis of aerospace communication systems, Brahmastra Aerospace Systems for rocket propulsion and drone design, and Garuda Aerospace as a drone pilot."
+          },
+          {
+            "q": "Which simulation and CAD tools do you use?",
+            "a": "ANSYS Workbench, ANSYS Fluent and APDL for simulation; AutoCAD, CATIA, SolidWorks and Fusion 360 for CAD; OpenRocket for rocket design."
+          },
+          {
+            "q": "What kind of work are you looking for?",
+            "a": "Roles in CFD, thermal and structural simulation and design optimisation, applied to aerospace and propulsion challenges."
+          }
+        ]
+      },
+      "testimonial-v2": {
+        "title": "Opinie, które mówią więcej",
+        "description": "Zobacz, jak współpraca z nami przełożyła się na lepszy wizerunek i wyniki naszych klientów.",
+        "tagline": "Opinie klientów",
+        "avatarAltPrefix": "Zdjęcie",
+        "items": [
+          {
+            "quote": "Nowa strona uporządkowała naszą komunikację i od pierwszego tygodnia zaczęła przyciągać lepsze zapytania.",
+            "author": "Anna Kowalska",
+            "initials": "AK",
+            "role": "Założycielka marki premium",
+            "avatar": "https://i.pravatar.cc/150?u=anna-kowalska"
+          },
+          {
+            "quote": "Proces był konkretny, sprawny i bardzo dobrze prowadzony. Dostaliśmy stronę, która naprawdę pasuje do naszej marki.",
+            "author": "Michał Nowak",
+            "initials": "MN",
+            "role": "Dyrektor operacyjny",
+            "avatar": "https://i.pravatar.cc/150?u=michal-nowak"
+          },
+          {
+            "quote": "W końcu możemy pokazać nasze realizacje w sposób, który oddaje ich jakość. Klienci od razu to zauważyli.",
+            "author": "Karolina Wójcik",
+            "initials": "KW",
+            "role": "Właścicielka studia",
+            "avatar": "https://i.pravatar.cc/150?u=karolina-wojcik"
+          }
+        ]
+      },
+      "nova-designs": {
+        "title": "Design portfolio",
+        "description": "Selected CAD work in CATIA: propulsion, drone airframes, mechanical parts and constrained 2D sketches. Click a card to view it full size.",
+        "linkLabel": "Download resume",
+        "linkHref": "/assets/resume/Majeeshresumeaerospace.pdf",
+        "items": [
+          {
+            "category": "CATIA / Propulsion",
+            "title": "Turbojet engine",
+            "image": "/assets/images/designs/catia-turbojet-engine.webp",
+            "alt": "Turbojet engine modelled in CATIA",
+            "href": "/assets/images/designs/catia-turbojet-engine.webp"
+          },
+          {
+            "category": "CATIA / Drone design",
+            "title": "Quadcopter drone with landing skids",
+            "image": "/assets/images/designs/catia-drone-design-2.webp",
+            "alt": "Quadcopter drone with landing skids modelled in CATIA",
+            "href": "/assets/images/designs/catia-drone-design-2.webp"
+          },
+          {
+            "category": "CATIA / Drone design",
+            "title": "Drone side view",
+            "image": "/assets/images/designs/catia-drone-side-view.webp",
+            "alt": "Drone side view modelled in CATIA",
+            "href": "/assets/images/designs/catia-drone-side-view.webp"
+          },
+          {
+            "category": "CATIA / Drone design",
+            "title": "Compact quadcopter concept",
+            "image": "/assets/images/designs/catia-drone-design-1.webp",
+            "alt": "Compact quadcopter concept modelled in CATIA",
+            "href": "/assets/images/designs/catia-drone-design-1.webp"
+          },
+          {
+            "category": "CATIA / 3D part",
+            "title": "Support frame",
+            "image": "/assets/images/designs/catia-3d-support-frame.webp",
+            "alt": "Support frame modelled in CATIA",
+            "href": "/assets/images/designs/catia-3d-support-frame.webp"
+          },
+          {
+            "category": "CATIA / 2D sketch",
+            "title": "Constrained flange sketch",
+            "image": "/assets/images/designs/catia-2d-sketch-flange.webp",
+            "alt": "Constrained flange sketch modelled in CATIA",
+            "href": "/assets/images/designs/catia-2d-sketch-flange.webp"
+          },
+          {
+            "category": "CATIA / 3D part",
+            "title": "Connecting lever",
+            "image": "/assets/images/designs/catia-3d-connecting-lever.webp",
+            "alt": "Connecting lever modelled in CATIA",
+            "href": "/assets/images/designs/catia-3d-connecting-lever.webp"
+          },
+          {
+            "category": "CATIA / 3D part",
+            "title": "Shaft support bracket",
+            "image": "/assets/images/designs/catia-3d-shaft-support.webp",
+            "alt": "Shaft support bracket modelled in CATIA",
+            "href": "/assets/images/designs/catia-3d-shaft-support.webp"
+          }
+        ]
+      }
+    },
+    "footer": {
+      "eyebrow": "Open to opportunities",
+      "heading": "Let's work together",
+      "description": "Email majeeshmajeesh611@gmail.com or call +91 93421 51561.",
+      "primaryLabel": "Email me",
+      "primaryHref": "mailto:majeeshmajeesh611@gmail.com",
+      "secondaryLabel": "LinkedIn",
+      "secondaryHref": "https://linkedin.com/in/majeeshs",
+      "legalLinks": [
+        {
+          "label": "Privacy policy",
+          "href": "/polityka-prywatnosci/"
+        },
+        {
+          "label": "Cookies",
+          "href": "/cookies/"
+        }
+      ],
+      "footerLinks": [
+        {
+          "label": "About",
+          "href": "/#zespol"
+        },
+        {
+          "label": "Skills",
+          "href": "/#uslugi"
+        },
+        {
+          "label": "Projects",
+          "href": "/#realizacje"
+        },
+        {
+          "label": "Designs",
+          "href": "/#designs"
+        },
+        {
+          "label": "Files",
+          "href": "/files/"
+        }
+      ],
+      "ariaLegal": "Legal documents",
+      "ariaNavigation": "Footer navigation",
+      "copyright": "All rights reserved.",
+      "attributionPrefix": "Design and development by ",
+      "attributionLinkLabel": "WebScale",
+      "attributionLinkHref": "https://webscale.pl"
+    }
+  },
+  "en": {
+    "page": {
+      "title": "Majeesh S, Aerospace Engineer",
+      "description": "Aerospace Engineering graduate specialising in CFD, thermal and structural analysis with ANSYS Fluent, Workbench and APDL.",
+      "heading": "Majeesh S, Aerospace Engineer"
+    },
+    "demoBanner": {
+      "label": "",
+      "downloadLabel": "",
+      "downloadHref": "",
+      "customizeLabel": "",
+      "customizeHref": ""
+    },
+    "navigation": {
+      "menu": [
+        {
+          "label": "About",
+          "href": "/#zespol"
+        },
+        {
+          "label": "Skills",
+          "href": "/#services"
+        },
+        {
+          "label": "Projects",
+          "href": "/#realizacje"
+        },
+        {
+          "label": "Designs",
+          "href": "/#designs"
+        },
+        {
+          "label": "Files",
+          "href": "/files/"
+        }
+      ],
+      "cta": {
+        "label": "Contact me",
+        "hoverLabel": "Let's talk",
+        "href": "#contact"
+      },
+      "aria": {
+        "menuOpen": "Open navigation menu",
+        "menuClose": "Close menu",
+        "menuExpand": "Expand submenu",
+        "navMain": "Main navigation",
+        "drawer": "Navigation menu"
+      },
+      "languageLabel": "Choose language"
+    },
+    "sections": {
+      "nova-hero-wireframe": {
+        "eyebrow": "CFD / THERMAL / STRUCTURAL ANALYSIS",
+        "heading": "Hi, I'm Majeesh, an",
+        "headingAccent": "aerospace engineer",
+        "description": "Aerospace Engineering graduate with a strong foundation in CFD, thermal and structural analysis. Passionate about applying simulation and design optimisation to solve complex aerospace challenges.",
+        "primaryCTA": {
+          "label": "Contact me",
+          "href": "#contact"
+        },
+        "secondaryCTA": {
+          "label": "Download resume",
+          "href": "/assets/resume/Majeeshresumeaerospace.pdf"
+        },
+        "trustedBy": "Interned at",
+        "trustItems": [
+          "CABS, DRDO",
+          "BRAHMASTRA",
+          "GARUDA AEROSPACE"
+        ],
+        "image": "/assets/images/profile/profile-pic.webp",
+        "imageAlt": "Portrait of Majeesh S at a laptop",
+        "stats": [
+          {
+            "value": "5",
+            "label": "Engineering projects"
+          },
+          {
+            "value": "4",
+            "label": "Aerospace internships"
+          },
+          {
+            "value": "10+",
+            "label": "CAD, CAE and software tools"
+          },
+          {
+            "value": "2026",
+            "label": "B.Tech, Karunya Institute"
+          }
+        ]
+      },
+      "nova-projects": {
+        "title": "Engineering projects",
+        "description": "Simulation, testing and analysis work across CFD, heat transfer, structures, aerodynamics and image processing.",
+        "linkLabel": "Discuss a project",
+        "linkHref": "#contact",
+        "items": [
+          {
+            "category": "CFD / Heat transfer",
+            "title": "Thermal performance of an automobile radiator using nanofluids"
+          },
+          {
+            "category": "CFD / ANSYS Fluent",
+            "title": "CFD analysis of jet impingement on deflector configurations"
+          },
+          {
+            "category": "Thermal / Structural",
+            "title": "Thermal and structural analysis of a SATCOM radome"
+          },
+          {
+            "category": "Aerodynamics / Testing",
+            "title": "Manufacturing and subsonic wind tunnel testing of a NACA 64-212 airfoil"
+          },
+          {
+            "category": "Python / Image processing",
+            "title": "Automated crack detection using inverse colour grading"
+          }
+        ]
+      },
+      "nova-services": {
+        "title": "Skills and expertise",
+        "description": "Simulation, design and analysis tools I use to take a component from CAD model to validated result.",
+        "linkLabel": "See my projects",
+        "linkHref": "#realizacje",
+        "items": [
+          {
+            "number": "01.",
+            "icon": "wind",
+            "title": "Computational Fluid Dynamics",
+            "description": "Flow, pressure and temperature studies in ANSYS Fluent, from jet impingement on deflectors to nanofluid-cooled radiators."
+          },
+          {
+            "number": "02.",
+            "icon": "thermometer-hot",
+            "title": "Thermal and structural analysis",
+            "description": "Heat transfer and stress analysis with ANSYS Workbench and APDL, evaluating components under thermal and mechanical loads."
+          },
+          {
+            "number": "03.",
+            "icon": "cube",
+            "title": "CAD design",
+            "description": "3D modelling and drafting in AutoCAD, CATIA, SolidWorks and Fusion 360, with a focus on aerospace propulsion and airframe parts."
+          },
+          {
+            "number": "04.",
+            "icon": "code",
+            "title": "Programming and tools",
+            "description": "Python fundamentals for image processing, Power BI and Microsoft Excel for data, plus RPA with UiPath and video editing."
+          }
+        ]
+      },
+      "nova-team": {
+        "title": "About me",
+        "description": "I am an Aerospace Engineering graduate (B.Tech, Karunya Institute of Technology and Sciences, 2022 to 2026). Through four internships I have worked on rocket propulsion, drone design and piloting, and CFD and thermal analysis for aerospace communication systems.",
+        "image": "/assets/images/designs/catia-drone-design-2.webp",
+        "imageAlt": "Quadcopter drone modelled in CATIA by Majeesh S",
+        "checks": [
+          "CFD and Thermal Analysis for Aerospace Communication Systems, CABS (DRDO)",
+          "Rocket Propulsion and Drone Design Internships, Brahmastra Aerospace Systems",
+          "Drone Pilot Internship, Garuda Aerospace"
+        ],
+        "teamCount": "4",
+        "teamLabel": "aerospace internships",
+        "teamAriaLabel": "Internships",
+        "teamAvatars": [],
+        "buttonLabel": "Download resume",
+        "buttonHref": "/assets/resume/Majeeshresumeaerospace.pdf"
+      },
+      "faq3": {
+        "title": "Quick facts",
+        "description": "Answers to the questions recruiters and collaborators ask most often.",
+        "tagline": "FAQ",
+        "items": [
+          {
+            "q": "What is your educational background?",
+            "a": "B.Tech in Aerospace Engineering from Karunya Institute of Technology and Sciences (2022 to 2026). Schooling at St. Joseph's Matric Hr. Sec. School (2008 to 2022)."
+          },
+          {
+            "q": "Where have you interned?",
+            "a": "CABS (DRDO) for CFD and thermal analysis of aerospace communication systems, Brahmastra Aerospace Systems for rocket propulsion and drone design, and Garuda Aerospace as a drone pilot."
+          },
+          {
+            "q": "Which simulation and CAD tools do you use?",
+            "a": "ANSYS Workbench, ANSYS Fluent and APDL for simulation; AutoCAD, CATIA, SolidWorks and Fusion 360 for CAD; OpenRocket for rocket design."
+          },
+          {
+            "q": "What kind of work are you looking for?",
+            "a": "Roles in CFD, thermal and structural simulation and design optimisation, applied to aerospace and propulsion challenges."
+          }
+        ]
+      },
+      "testimonial-v2": {
+        "title": "Reviews that say more",
+        "description": "See how working with us translated into a stronger image and better results for our clients.",
+        "tagline": "Client reviews",
+        "avatarAltPrefix": "Photo of",
+        "items": [
+          {
+            "quote": "The new website finally gave our communication a clear structure and started bringing better enquiries from the first week.",
+            "author": "Anna Kowalska",
+            "initials": "AK",
+            "role": "Founder of a premium brand",
+            "avatar": "https://i.pravatar.cc/150?u=anna-kowalska"
+          },
+          {
+            "quote": "The process was focused, efficient and very well guided. We received a website that genuinely fits our brand.",
+            "author": "Michal Nowak",
+            "initials": "MN",
+            "role": "Operations director",
+            "avatar": "https://i.pravatar.cc/150?u=michal-nowak"
+          },
+          {
+            "quote": "We can finally present our work in a way that reflects its quality. Clients noticed the difference straight away.",
+            "author": "Karolina Wojcik",
+            "initials": "KW",
+            "role": "Studio owner",
+            "avatar": "https://i.pravatar.cc/150?u=karolina-wojcik"
+          }
+        ]
+      },
+      "nova-designs": {
+        "title": "Design portfolio",
+        "description": "Selected CAD work in CATIA: propulsion, drone airframes, mechanical parts and constrained 2D sketches. Click a card to view it full size.",
+        "linkLabel": "Download resume",
+        "linkHref": "/assets/resume/Majeeshresumeaerospace.pdf",
+        "items": [
+          {
+            "category": "CATIA / Propulsion",
+            "title": "Turbojet engine",
+            "image": "/assets/images/designs/catia-turbojet-engine.webp",
+            "alt": "Turbojet engine modelled in CATIA",
+            "href": "/assets/images/designs/catia-turbojet-engine.webp"
+          },
+          {
+            "category": "CATIA / Drone design",
+            "title": "Quadcopter drone with landing skids",
+            "image": "/assets/images/designs/catia-drone-design-2.webp",
+            "alt": "Quadcopter drone with landing skids modelled in CATIA",
+            "href": "/assets/images/designs/catia-drone-design-2.webp"
+          },
+          {
+            "category": "CATIA / Drone design",
+            "title": "Drone side view",
+            "image": "/assets/images/designs/catia-drone-side-view.webp",
+            "alt": "Drone side view modelled in CATIA",
+            "href": "/assets/images/designs/catia-drone-side-view.webp"
+          },
+          {
+            "category": "CATIA / Drone design",
+            "title": "Compact quadcopter concept",
+            "image": "/assets/images/designs/catia-drone-design-1.webp",
+            "alt": "Compact quadcopter concept modelled in CATIA",
+            "href": "/assets/images/designs/catia-drone-design-1.webp"
+          },
+          {
+            "category": "CATIA / 3D part",
+            "title": "Support frame",
+            "image": "/assets/images/designs/catia-3d-support-frame.webp",
+            "alt": "Support frame modelled in CATIA",
+            "href": "/assets/images/designs/catia-3d-support-frame.webp"
+          },
+          {
+            "category": "CATIA / 2D sketch",
+            "title": "Constrained flange sketch",
+            "image": "/assets/images/designs/catia-2d-sketch-flange.webp",
+            "alt": "Constrained flange sketch modelled in CATIA",
+            "href": "/assets/images/designs/catia-2d-sketch-flange.webp"
+          },
+          {
+            "category": "CATIA / 3D part",
+            "title": "Connecting lever",
+            "image": "/assets/images/designs/catia-3d-connecting-lever.webp",
+            "alt": "Connecting lever modelled in CATIA",
+            "href": "/assets/images/designs/catia-3d-connecting-lever.webp"
+          },
+          {
+            "category": "CATIA / 3D part",
+            "title": "Shaft support bracket",
+            "image": "/assets/images/designs/catia-3d-shaft-support.webp",
+            "alt": "Shaft support bracket modelled in CATIA",
+            "href": "/assets/images/designs/catia-3d-shaft-support.webp"
+          }
+        ]
+      }
+    },
+    "footer": {
+      "eyebrow": "Open to opportunities",
+      "heading": "Let's work together",
+      "description": "Email majeeshmajeesh611@gmail.com or call +91 93421 51561.",
+      "primaryLabel": "Email me",
+      "primaryHref": "mailto:majeeshmajeesh611@gmail.com",
+      "secondaryLabel": "LinkedIn",
+      "secondaryHref": "https://linkedin.com/in/majeeshs",
+      "legalLinks": [
+        {
+          "label": "Privacy policy",
+          "href": "/polityka-prywatnosci/"
+        },
+        {
+          "label": "Cookies",
+          "href": "/cookies/"
+        }
+      ],
+      "footerLinks": [
+        {
+          "label": "About",
+          "href": "/#zespol"
+        },
+        {
+          "label": "Skills",
+          "href": "/#services"
+        },
+        {
+          "label": "Projects",
+          "href": "/#realizacje"
+        },
+        {
+          "label": "Designs",
+          "href": "/#designs"
+        },
+        {
+          "label": "Files",
+          "href": "/files/"
+        }
+      ],
+      "ariaLegal": "Legal documents",
+      "ariaNavigation": "Footer navigation",
+      "copyright": "All rights reserved.",
+      "attributionPrefix": "Design and development by ",
+      "attributionLinkLabel": "WebScale",
+      "attributionLinkHref": "https://webscale.pl"
+    }
+  }
+}

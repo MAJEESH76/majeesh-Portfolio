@@ -1,0 +1,19 @@
+﻿---
+import Layout from '@layouts/Layout.astro';
+import FileExplorer from '@components/files/FileExplorer.astro';
+import type { NovaLocale } from '@utils/nova-i18n';
+
+const locale: NovaLocale = 'en';
+---
+
+<Layout
+  title="Design files, Majeesh S"
+  description="CATIA parts and assemblies, AutoCAD drawings and OpenRocket designs by Majeesh S, viewable in 2D and 3D."
+  lang={locale}
+  locale={locale}
+  navbarVariant="floating"
+  footerVariant="nova"
+  fullBleedTop={false}
+>
+  <FileExplorer />
+</Layout>

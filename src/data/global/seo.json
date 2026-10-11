@@ -1,0 +1,13 @@
+{
+  "defaultTitle": "Majeesh S, Aerospace Engineer",
+  "defaultDescription": "Aerospace Engineering graduate specialising in CFD, thermal and structural analysis with ANSYS Fluent, Workbench and APDL.",
+  "defaultOgImage": "/og-image.png",
+  "index": true,
+  "follow": true,
+  "analytics": {
+    "googleAnalyticsId": "",
+    "googleTagManagerId": "",
+    "facebookPixelId": "",
+    "clarityId": ""
+  }
+}

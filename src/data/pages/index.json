@@ -1,0 +1,17 @@
+{
+  "seo": {
+    "title": "Majeesh S, Aerospace Engineer",
+    "description": "Aerospace Engineering graduate specialising in CFD, thermal and structural analysis with ANSYS Fluent, Workbench and APDL."
+  },
+  "heading": "Majeesh S, Aerospace Engineer",
+  "sections": [
+    { "id": "navbar", "variant": "floating" },
+    { "id": "hero", "variant": "nova" },
+    { "id": "portfolio", "variant": "nova" },
+    { "id": "novaDesigns", "variant": "default" },
+    { "id": "novaServices", "variant": "default" },
+    { "id": "novaTeam", "variant": "default" },
+    { "id": "faq3", "variant": "default" },
+    { "id": "footer", "variant": "nova" }
+  ]
+}

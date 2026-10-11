@@ -26,7 +26,7 @@ oauth-config.php
 
 # CAD source files stay private. The site only needs the generated previews
 # (public/assets/design-files/) and src/data/design-files/manifest.json, which are committed.
-design-files/
+/design-files/
 
 # Client Assets
 src/assets/raw/

@@ -1,0 +1,952 @@
+{
+  "groups": [
+    "OpenRocket designs",
+    "CATIA assemblies",
+    "CATIA parts",
+    "AutoCAD drawings",
+    "Presentations"
+  ],
+  "files": [
+    {
+      "id": "rocket-and-missiles-2-single-deployment-ork",
+      "name": "rocket and missiles 2 single deployment.ork",
+      "ext": "ORK",
+      "group": "OpenRocket designs",
+      "kind": "OpenRocket Design",
+      "icon": "rocket-launch",
+      "view": "both",
+      "size": 493461,
+      "images": [],
+      "rocket": {
+        "name": "rocket and missiles 2 project",
+        "length": 0.9652,
+        "diameter": 0.042,
+        "noseShape": "haack",
+        "finCount": 4,
+        "motor": "AeroTech H128W",
+        "stages": [
+          {
+            "name": "Sustainer",
+            "start": 0,
+            "end": 0.9652
+          }
+        ],
+        "segments": [
+          {
+            "type": "nose",
+            "x": 0,
+            "length": 0.2032,
+            "r0": 0,
+            "r1": 0.021,
+            "shape": "haack",
+            "param": 0
+          },
+          {
+            "type": "tube",
+            "x": 0.2032,
+            "length": 0.762,
+            "r0": 0.021,
+            "r1": 0.021
+          }
+        ],
+        "fins": [
+          {
+            "x": 0.8586,
+            "count": 4,
+            "root": 0.1016,
+            "tip": 0.0254,
+            "span": 0.0381,
+            "sweep": 0.0652,
+            "thickness": 0.00062,
+            "radius": 0.021
+          }
+        ]
+      }
+    },
+    {
+      "id": "rocket-and-missiles-model-0-ork",
+      "name": "rocket and missiles model 0.ork",
+      "ext": "ORK",
+      "group": "OpenRocket designs",
+      "kind": "OpenRocket Design",
+      "icon": "rocket-launch",
+      "view": "both",
+      "size": 493428,
+      "images": [],
+      "rocket": {
+        "name": "rocket model 0",
+        "length": 0.9652,
+        "diameter": 0.042,
+        "noseShape": "haack",
+        "finCount": 4,
+        "motor": "AeroTech H128W",
+        "stages": [
+          {
+            "name": "Sustainer",
+            "start": 0,
+            "end": 0.9652
+          }
+        ],
+        "segments": [
+          {
+            "type": "nose",
+            "x": 0,
+            "length": 0.2032,
+            "r0": 0,
+            "r1": 0.021,
+            "shape": "haack",
+            "param": 0
+          },
+          {
+            "type": "tube",
+            "x": 0.2032,
+            "length": 0.762,
+            "r0": 0.021,
+            "r1": 0.021
+          }
+        ],
+        "fins": [
+          {
+            "x": 0.8586,
+            "count": 4,
+            "root": 0.1016,
+            "tip": 0.0254,
+            "span": 0.0381,
+            "sweep": 0.0652,
+            "thickness": 0.00062,
+            "radius": 0.021
+          }
+        ]
+      }
+    },
+    {
+      "id": "rocket-missile-1-ork",
+      "name": "rocket missile 1.ork",
+      "ext": "ORK",
+      "group": "OpenRocket designs",
+      "kind": "OpenRocket Design",
+      "icon": "rocket-launch",
+      "view": "both",
+      "size": 97603,
+      "images": [],
+      "rocket": {
+        "name": "rocket missile 1",
+        "length": 0.469,
+        "diameter": 0.021,
+        "noseShape": "ogive",
+        "finCount": 3,
+        "motor": "Klima B4",
+        "stages": [
+          {
+            "name": "Sustainer",
+            "start": 0,
+            "end": 0.469
+          }
+        ],
+        "segments": [
+          {
+            "type": "nose",
+            "x": 0,
+            "length": 0.07,
+            "r0": 0,
+            "r1": 0.0105,
+            "shape": "ogive",
+            "param": 1
+          },
+          {
+            "type": "tube",
+            "x": 0.07,
+            "length": 0.399,
+            "r0": 0.0105,
+            "r1": 0.0105
+          }
+        ],
+        "fins": [
+          {
+            "x": 0.4,
+            "count": 3,
+            "root": 0.069,
+            "tip": 0.029,
+            "span": 0.02,
+            "sweep": 0.025,
+            "thickness": 0.003,
+            "radius": 0.0105
+          }
+        ]
+      }
+    },
+    {
+      "id": "rocket-multistage-4-ork",
+      "name": "rocket multistage 4.ork",
+      "ext": "ORK",
+      "group": "OpenRocket designs",
+      "kind": "OpenRocket Design",
+      "icon": "rocket-launch",
+      "view": "both",
+      "size": 416476,
+      "images": [],
+      "rocket": {
+        "name": "rocket multistage 3",
+        "length": 1.651,
+        "diameter": 0.042,
+        "noseShape": "haack",
+        "finCount": 8,
+        "motor": "AeroTech H220T",
+        "stages": [
+          {
+            "name": "Sustainer",
+            "start": 0,
+            "end": 0.9652
+          },
+          {
+            "name": "boosterStage",
+            "start": 0.9652,
+            "end": 1.651
+          }
+        ],
+        "segments": [
+          {
+            "type": "nose",
+            "x": 0,
+            "length": 0.2032,
+            "r0": 0,
+            "r1": 0.021,
+            "shape": "haack",
+            "param": 0
+          },
+          {
+            "type": "tube",
+            "x": 0.2032,
+            "length": 0.762,
+            "r0": 0.021,
+            "r1": 0.021
+          },
+          {
+            "type": "tube",
+            "x": 0.9652,
+            "length": 0.6858,
+            "r0": 0.021,
+            "r1": 0.021
+          }
+        ],
+        "fins": [
+          {
+            "x": 0.8586,
+            "count": 4,
+            "root": 0.1016,
+            "tip": 0.0254,
+            "span": 0.0381,
+            "sweep": 0.0652,
+            "thickness": 0.00062,
+            "radius": 0.021
+          },
+          {
+            "x": 1.5452,
+            "count": 4,
+            "root": 0.1008,
+            "tip": 0.0381,
+            "span": 0.0381,
+            "sweep": 0.04432,
+            "thickness": 0.003,
+            "radius": 0.021
+          }
+        ]
+      }
+    },
+    {
+      "id": "roket-design-dual-deplloyment-3-ork",
+      "name": "roket design dual deplloyment 3.ork",
+      "ext": "ORK",
+      "group": "OpenRocket designs",
+      "kind": "OpenRocket Design",
+      "icon": "rocket-launch",
+      "view": "both",
+      "size": 47530,
+      "images": [],
+      "rocket": {
+        "name": "roket design dual deplloyment 3",
+        "length": 1.2287,
+        "diameter": 0.042,
+        "noseShape": "haack",
+        "finCount": 4,
+        "motor": "AeroTech H128W",
+        "stages": [
+          {
+            "name": "Sustainer",
+            "start": 0,
+            "end": 1.2287
+          }
+        ],
+        "segments": [
+          {
+            "type": "nose",
+            "x": 0,
+            "length": 0.2032,
+            "r0": 0,
+            "r1": 0.021,
+            "shape": "haack",
+            "param": 0
+          },
+          {
+            "type": "tube",
+            "x": 0.2032,
+            "length": 0.4286,
+            "r0": 0.021,
+            "r1": 0.021
+          },
+          {
+            "type": "tube",
+            "x": 0.6318,
+            "length": 0.0127,
+            "r0": 0.021,
+            "r1": 0.021
+          },
+          {
+            "type": "tube",
+            "x": 0.6445,
+            "length": 0.5842,
+            "r0": 0.021,
+            "r1": 0.021
+          }
+        ],
+        "fins": [
+          {
+            "x": 1.1221,
+            "count": 4,
+            "root": 0.1016,
+            "tip": 0.0254,
+            "span": 0.0381,
+            "sweep": 0.0652,
+            "thickness": 0.00062,
+            "radius": 0.021
+          }
+        ]
+      }
+    },
+    {
+      "id": "catia-12-full-catproduct",
+      "name": "catia 12 full.CATProduct",
+      "ext": "CATPRODUCT",
+      "group": "CATIA assemblies",
+      "kind": "CATIA Product (assembly)",
+      "icon": "cube-focus",
+      "view": "3d",
+      "size": 93760,
+      "images": [
+        {
+          "src": "/assets/images/designs/catia-3d-support-frame.webp",
+          "caption": "Rendered in CATIA"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-12-full-catproduct.webp"
+    },
+    {
+      "id": "final-done-delivery-catproduct",
+      "name": "final done delivery.CATProduct",
+      "ext": "CATPRODUCT",
+      "group": "CATIA assemblies",
+      "kind": "CATIA Product (assembly)",
+      "icon": "cube-focus",
+      "view": "3d",
+      "size": 18924,
+      "images": [
+        {
+          "src": "/assets/images/designs/catia-drone-design-2.webp",
+          "caption": "Rendered in CATIA"
+        },
+        {
+          "src": "/assets/images/designs/catia-drone-side-view.webp",
+          "caption": "Rendered in CATIA"
+        }
+      ],
+      "thumbnail": "/assets/design-files/final-done-delivery-catproduct.webp"
+    },
+    {
+      "id": "new-drone-catproduct",
+      "name": "new drone.CATProduct",
+      "ext": "CATPRODUCT",
+      "group": "CATIA assemblies",
+      "kind": "CATIA Product (assembly)",
+      "icon": "cube-focus",
+      "view": "3d",
+      "size": 15747,
+      "images": [
+        {
+          "src": "/assets/images/designs/catia-drone-side-view.webp",
+          "caption": "Rendered in CATIA"
+        },
+        {
+          "src": "/assets/images/designs/catia-drone-design-2.webp",
+          "caption": "Rendered in CATIA"
+        }
+      ],
+      "thumbnail": "/assets/design-files/new-drone-catproduct.webp"
+    },
+    {
+      "id": "catia-9-catpart",
+      "name": "catia  9.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 122686,
+      "images": [
+        {
+          "src": "/assets/design-files/catia-9-catpart-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-9-catpart.webp"
+    },
+    {
+      "id": "catia-1-catpart",
+      "name": "catia 1.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 74973,
+      "images": [
+        {
+          "src": "/assets/design-files/catia-1-catpart-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-1-catpart.webp"
+    },
+    {
+      "id": "catia-2-catpart",
+      "name": "catia 2.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 107472,
+      "images": [
+        {
+          "src": "/assets/design-files/catia-2-catpart-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-2-catpart.webp"
+    },
+    {
+      "id": "catia-3-catpart",
+      "name": "catia 3.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 140604,
+      "images": [
+        {
+          "src": "/assets/design-files/catia-3-catpart-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-3-catpart.webp"
+    },
+    {
+      "id": "catia-4-catpart",
+      "name": "catia 4.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 117860,
+      "images": [
+        {
+          "src": "/assets/images/designs/catia-3d-angle-bracket.webp",
+          "caption": "Rendered in CATIA"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-4-catpart.webp"
+    },
+    {
+      "id": "catia-5-catpart",
+      "name": "catia 5.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 161578,
+      "images": [
+        {
+          "src": "/assets/images/designs/catia-3d-pivot-bracket.webp",
+          "caption": "Rendered in CATIA"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-5-catpart.webp"
+    },
+    {
+      "id": "catia-6-catpart",
+      "name": "catia 6.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 164176,
+      "images": [
+        {
+          "src": "/assets/images/designs/catia-3d-shaft-support.webp",
+          "caption": "Rendered in CATIA"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-6-catpart.webp"
+    },
+    {
+      "id": "catia-7-catpart",
+      "name": "catia 7.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 147894,
+      "images": [
+        {
+          "src": "/assets/images/designs/catia-3d-connecting-lever.webp",
+          "caption": "Rendered in CATIA"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-7-catpart.webp"
+    },
+    {
+      "id": "catia-8-catpart",
+      "name": "catia 8.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 208878,
+      "images": [
+        {
+          "src": "/assets/design-files/catia-8-catpart-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-8-catpart.webp"
+    },
+    {
+      "id": "catia-9-catpart-2",
+      "name": "catia 9.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 78748,
+      "images": [
+        {
+          "src": "/assets/design-files/catia-9-catpart-2-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-9-catpart-2.webp"
+    },
+    {
+      "id": "catia-10-catpart",
+      "name": "catia 10.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 154268,
+      "images": [
+        {
+          "src": "/assets/design-files/catia-10-catpart-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-10-catpart.webp"
+    },
+    {
+      "id": "catia-11-catpart",
+      "name": "catia 11.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 1000198,
+      "images": [
+        {
+          "src": "/assets/design-files/catia-11-catpart-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-11-catpart.webp"
+    },
+    {
+      "id": "catia-12-leg-catpart",
+      "name": "catia 12 leg.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 424677,
+      "images": [
+        {
+          "src": "/assets/design-files/catia-12-leg-catpart-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-12-leg-catpart.webp"
+    },
+    {
+      "id": "catia-12-step-catpart",
+      "name": "catia 12 step.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 415805,
+      "images": [
+        {
+          "src": "/assets/design-files/catia-12-step-catpart-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-12-step-catpart.webp"
+    },
+    {
+      "id": "catia-12-top-catpart",
+      "name": "catia 12 top.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 420456,
+      "images": [
+        {
+          "src": "/assets/design-files/catia-12-top-catpart-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-12-top-catpart.webp"
+    },
+    {
+      "id": "catia-13-catpart",
+      "name": "catia 13.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 191419,
+      "images": [
+        {
+          "src": "/assets/design-files/catia-13-catpart-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-13-catpart.webp"
+    },
+    {
+      "id": "catia-14-catpart",
+      "name": "catia 14.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 164889,
+      "images": [
+        {
+          "src": "/assets/design-files/catia-14-catpart-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-14-catpart.webp"
+    },
+    {
+      "id": "catia-15-catpart",
+      "name": "catia 15.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 1353101,
+      "images": [
+        {
+          "src": "/assets/design-files/catia-15-catpart-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-15-catpart.webp"
+    },
+    {
+      "id": "catia-16-metal-sheet-catpart",
+      "name": "catia 16 metal sheet.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 222643,
+      "images": [
+        {
+          "src": "/assets/design-files/catia-16-metal-sheet-catpart-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-16-metal-sheet-catpart.webp"
+    },
+    {
+      "id": "catia-17-catpart",
+      "name": "catia 17.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 518436,
+      "images": [
+        {
+          "src": "/assets/design-files/catia-17-catpart-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-17-catpart.webp"
+    },
+    {
+      "id": "catia-drone-design-catpart",
+      "name": "CATIA DRONE DESIGN.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 2909441,
+      "images": [
+        {
+          "src": "/assets/images/designs/catia-drone-design-1.webp",
+          "caption": "Rendered in CATIA"
+        }
+      ],
+      "thumbnail": "/assets/design-files/catia-drone-design-catpart.webp"
+    },
+    {
+      "id": "drone-motor-catpart",
+      "name": "drone motor.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 299528,
+      "images": [
+        {
+          "src": "/assets/design-files/drone-motor-catpart-large.webp",
+          "caption": "Preview embedded in the CATIA file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/drone-motor-catpart.webp"
+    },
+    {
+      "id": "part1-catpart",
+      "name": "Part1.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 1868916,
+      "images": [
+        {
+          "src": "/assets/images/designs/catia-drone-design-2.webp",
+          "caption": "Rendered in CATIA"
+        },
+        {
+          "src": "/assets/images/designs/catia-drone-side-view.webp",
+          "caption": "Rendered in CATIA"
+        }
+      ],
+      "thumbnail": "/assets/design-files/part1-catpart.webp"
+    },
+    {
+      "id": "turbo-jet-catpart",
+      "name": "turbo jet.CATPart",
+      "ext": "CATPART",
+      "group": "CATIA parts",
+      "kind": "CATIA Part",
+      "icon": "cube",
+      "view": "3d",
+      "size": 4697000,
+      "images": [
+        {
+          "src": "/assets/images/designs/catia-turbojet-engine.webp",
+          "caption": "Rendered in CATIA"
+        }
+      ],
+      "thumbnail": "/assets/design-files/turbo-jet-catpart.webp"
+    },
+    {
+      "id": "aircraft-f16-dwg",
+      "name": "aircraft f16.dwg",
+      "ext": "DWG",
+      "group": "AutoCAD drawings",
+      "kind": "AutoCAD Drawing",
+      "icon": "compass-tool",
+      "view": "2d",
+      "size": 1233256,
+      "images": [
+        {
+          "src": "/assets/design-files/aircraft-f16-dwg.webp",
+          "caption": "Drawing preview embedded in the DWG file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/aircraft-f16-dwg.webp"
+    },
+    {
+      "id": "drawing1-dwg-cad-dwg",
+      "name": "Drawing1.dwg cad.dwg",
+      "ext": "DWG",
+      "group": "AutoCAD drawings",
+      "kind": "AutoCAD Drawing",
+      "icon": "compass-tool",
+      "view": "2d",
+      "size": 40398,
+      "images": [
+        {
+          "src": "/assets/design-files/drawing1-dwg-cad-dwg.webp",
+          "caption": "Drawing preview embedded in the DWG file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/drawing1-dwg-cad-dwg.webp"
+    },
+    {
+      "id": "drawing2-dwg-cad-dwg",
+      "name": "Drawing2.dwg cad.dwg",
+      "ext": "DWG",
+      "group": "AutoCAD drawings",
+      "kind": "AutoCAD Drawing",
+      "icon": "compass-tool",
+      "view": "2d",
+      "size": 38960,
+      "images": [
+        {
+          "src": "/assets/design-files/drawing2-dwg-cad-dwg.webp",
+          "caption": "Drawing preview embedded in the DWG file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/drawing2-dwg-cad-dwg.webp"
+    },
+    {
+      "id": "drawing3-dwg-cad-dwg",
+      "name": "Drawing3.dwg Cad.dwg",
+      "ext": "DWG",
+      "group": "AutoCAD drawings",
+      "kind": "AutoCAD Drawing",
+      "icon": "compass-tool",
+      "view": "2d",
+      "size": 37363,
+      "images": [
+        {
+          "src": "/assets/design-files/drawing3-dwg-cad-dwg.webp",
+          "caption": "Drawing preview embedded in the DWG file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/drawing3-dwg-cad-dwg.webp"
+    },
+    {
+      "id": "drawing3dwg-cad-dwg",
+      "name": "Drawing3dwg cad.dwg",
+      "ext": "DWG",
+      "group": "AutoCAD drawings",
+      "kind": "AutoCAD Drawing",
+      "icon": "compass-tool",
+      "view": "2d",
+      "size": 44183,
+      "images": [
+        {
+          "src": "/assets/design-files/drawing3dwg-cad-dwg.webp",
+          "caption": "Drawing preview embedded in the DWG file"
+        }
+      ],
+      "thumbnail": "/assets/design-files/drawing3dwg-cad-dwg.webp"
+    },
+    {
+      "id": "3-rd-review-ppt-pptx",
+      "name": "3 rd review ppt.pptx",
+      "ext": "PPTX",
+      "group": "Presentations",
+      "kind": "PowerPoint Presentation",
+      "icon": "lock-simple",
+      "view": "none",
+      "restricted": true,
+      "note": "SATCOM radome review carried out under CABS, DRDO. The results are restricted and confidential, so this file is not published.",
+      "images": []
+    },
+    {
+      "id": "catia-design-files-pptx",
+      "name": "catia design files.pptx",
+      "ext": "PPTX",
+      "group": "Presentations",
+      "kind": "PowerPoint Presentation",
+      "icon": "presentation-chart",
+      "view": "2d",
+      "size": 1652109,
+      "images": [
+        {
+          "src": "/assets/images/designs/catia-2d-sketch-lever.webp",
+          "caption": "2D sketch: lever"
+        },
+        {
+          "src": "/assets/images/designs/catia-2d-sketch-flange.webp",
+          "caption": "2D sketch: flange"
+        },
+        {
+          "src": "/assets/images/designs/catia-3d-connecting-lever.webp",
+          "caption": "3D: connecting lever"
+        },
+        {
+          "src": "/assets/images/designs/catia-3d-shaft-support.webp",
+          "caption": "3D: shaft support"
+        },
+        {
+          "src": "/assets/images/designs/catia-3d-support-frame.webp",
+          "caption": "3D: support frame"
+        },
+        {
+          "src": "/assets/images/designs/catia-3d-pivot-bracket.webp",
+          "caption": "3D: pivot bracket"
+        },
+        {
+          "src": "/assets/images/designs/catia-3d-angle-bracket.webp",
+          "caption": "3D: angle bracket"
+        },
+        {
+          "src": "/assets/images/designs/catia-drone-design-1.webp",
+          "caption": "Drone design 1"
+        },
+        {
+          "src": "/assets/images/designs/catia-drone-design-2.webp",
+          "caption": "Drone design 2"
+        },
+        {
+          "src": "/assets/images/designs/catia-drone-side-view.webp",
+          "caption": "Drone side view"
+        },
+        {
+          "src": "/assets/images/designs/catia-turbojet-engine.webp",
+          "caption": "Turbojet engine"
+        }
+      ],
+      "thumbnail": "/assets/images/designs/catia-drone-design-2@480.webp"
+    }
+  ]
+}

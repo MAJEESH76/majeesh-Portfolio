@@ -58,11 +58,8 @@ const RESTRICTED = [
     note: 'SATCOM radome review carried out under CABS, DRDO. The results are restricted and confidential, so this file is not published.',
   },
 ];
-// Files inside design-files/ that must not be published:
-const RESTRICTED_FILES = {
-  'Majeesh report final.pdf': 'Internship report on the thermal and structural analysis of a SATCOM radome at the Centre for Airborne Systems, DRDO. The work is restricted and confidential, so this report is not published.',
-  'Visual and Physical Inspection .pptx': 'Inspection procedures and part photographs from the internship at the Centre for Airborne Systems, DRDO. Not published because the material belongs to the organisation.',
-};
+// Files inside design-files/ that must be listed but not published, as { 'file name': 'reason' }:
+const RESTRICTED_FILES = {};
 
 // Everything in design-files/pdf/ is shown first, as one group, whatever its format.
 const REPORTS_FOLDER = 'pdf';

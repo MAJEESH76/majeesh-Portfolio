@@ -59,19 +59,6 @@
       "html": "/assets/design-files/ethylene-glycol-results-steady-analysis-for-120-80-180-docx.html"
     },
     {
-      "id": "majeesh-report-final-pdf",
-      "name": "Majeesh report final.pdf",
-      "ext": "PDF",
-      "group": "Reports and documents",
-      "kind": "PDF document",
-      "icon": "lock-simple",
-      "view": "none",
-      "size": 32112618,
-      "images": [],
-      "restricted": true,
-      "note": "Internship report on the thermal and structural analysis of a SATCOM radome at the Centre for Airborne Systems, DRDO. The work is restricted and confidential, so this report is not published."
-    },
-    {
       "id": "ndt-project-report-final-pdf",
       "name": "ndt project report final.pdf",
       "ext": "PDF",
@@ -107,19 +94,6 @@
       "size": 3284029,
       "images": [],
       "html": "/assets/design-files/steady-radiator-analysis-of-various-fluid-120-docx.html"
-    },
-    {
-      "id": "visual-and-physical-inspection-pptx",
-      "name": "Visual and Physical Inspection .pptx",
-      "ext": "PPTX",
-      "group": "Reports and documents",
-      "kind": "PowerPoint Presentation",
-      "icon": "lock-simple",
-      "view": "none",
-      "size": 22675705,
-      "images": [],
-      "restricted": true,
-      "note": "Inspection procedures and part photographs from the internship at the Centre for Airborne Systems, DRDO. Not published because the material belongs to the organisation."
     },
     {
       "id": "rocket-and-missiles-2-single-deployment-ork",

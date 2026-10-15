@@ -89,7 +89,7 @@ const TYPES = {
   '.ork': { group: 'OpenRocket designs', kind: 'OpenRocket Design', icon: 'rocket-launch', view: 'both' },
   '.pptx': { group: 'Presentations', kind: 'PowerPoint Presentation', icon: 'presentation-chart', view: '2d' },
 };
-const GROUP_ORDER = [REPORTS_GROUP, 'OpenRocket designs', 'STEP models', 'SolidWorks parts', 'CATIA assemblies', 'CATIA parts', 'AutoCAD drawings', 'Presentations'];
+const GROUP_ORDER = [REPORTS_GROUP, 'STEP models', 'SolidWorks parts', 'OpenRocket designs', 'CATIA assemblies', 'CATIA parts', 'AutoCAD drawings', 'Presentations'];
 
 function slugify(name) {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -377,9 +377,7 @@ for (const full of walk(sourceDir).sort((a, b) => a.localeCompare(b, 'en', { num
       entry.images = [{ src, caption: 'Preview saved in the SolidWorks file' }];
     }
   } else if (ext === '.step' || ext === '.stp') {
-    // Innerscene reads STEP natively (smooth shading); the STL is the local/offline fallback.
-    fs.copyFileSync(full, path.join(previewDir, `${id}${ext}`));
-    entry.cad = `/assets/design-files/${id}${ext}`;
+    // Converted here rather than in Innerscene: its in-browser STEP parse takes a minute or more.
     const stl = await stepToStl(buffer);
     if (stl) {
       fs.writeFileSync(path.join(previewDir, `${id}.stl`), stl.data);

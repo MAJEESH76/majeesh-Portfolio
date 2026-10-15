@@ -60,11 +60,8 @@ export function initFileExplorer() {
   const available = (file: FileEntry): View[] => {
     if (file.restricted) return [];
     if (file.document || file.html) return ["2d"];
-    // SolidWorks/STEP: 2D = preview image saved in the file; 3D = Innerscene viewer (not for sketches).
-    if (file.cad) {
-      if (file.view === "2d") return ["2d"];
-      return file.images.length ? ["2d", "3d"] : ["3d"];
-    }
+    // SolidWorks: 2D = preview image saved in the file; 3D = Innerscene viewer (not for sketches).
+    if (file.cad) return file.view === "2d" ? ["2d"] : ["2d", "3d"];
     if (file.rocket) return ["2d", "3d"];
     if (file.view === "3d") return file.images.length || file.model ? ["3d"] : [];
     return file.images.length ? ["2d"] : [];
@@ -139,7 +136,7 @@ export function initFileExplorer() {
         .catch(() => { doc.replaceChildren(message("The document could not be loaded.")); });
       return;
     }
-    if (file.cad && view === "3d" && !(isLocalHost() && file.model)) {
+    if (file.cad && view === "3d") {
       stage.append(innersceneViewer(file));
       return;
     }
@@ -151,12 +148,15 @@ export function initFileExplorer() {
     if (view === "3d" && file.model) {
       mount3d(stage, async (THREE, scene) => {
         const { STLLoader } = await import("three/examples/jsm/loaders/STLLoader.js");
-        const geometry = await new STLLoader().loadAsync(file.model!);
-        geometry.center();
-        // Exported STLs may carry zero normals; recompute so the model is lit correctly.
-        geometry.deleteAttribute("normal");
-        geometry.computeVertexNormals();
-        const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: 0xd9d6f2, metalness: 0.2, roughness: 0.45 }));
+        const { toCreasedNormals } = await import("three/examples/jsm/utils/BufferGeometryUtils.js");
+        const loaded = await new STLLoader().loadAsync(file.model!);
+        loaded.center();
+        // STL triangles are faceted (and may carry zero normals): creased normals shade curved
+        // surfaces smoothly while edges sharper than 30° stay crisp.
+        loaded.deleteAttribute("normal");
+        const geometry = toCreasedNormals(loaded, Math.PI / 6);
+        loaded.dispose();
+        const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: 0xd9d6f2, metalness: 0.25, roughness: 0.4 }));
         geometry.computeBoundingSphere();
         mesh.scale.setScalar(1 / (geometry.boundingSphere?.radius || 1));
         scene.add(mesh);
@@ -235,14 +235,11 @@ function innersceneViewer(file: FileEntry) {
   const frame = document.createElement("iframe");
   frame.className = "file-explorer__doc";
   const model = new URL(file.cad!, window.location.href).href;
-  const tool = file.ext === "SLDPRT" ? "solidworks-viewer" : "3d-viewer";
-  frame.src = `https://www.innerscene.com/tools/${tool}?url=${encodeURIComponent(model)}&embedded=1`;
+  // The embed shows its own "SolidWorks Viewer by Innerscene" credit.
+  frame.src = `https://www.innerscene.com/tools/solidworks-viewer?url=${encodeURIComponent(model)}&embedded=1`;
   frame.title = `3D view of ${file.name}`;
   frame.allowFullscreen = true;
-  const hint = document.createElement("p");
-  hint.className = "file-explorer__hint";
-  hint.innerHTML = 'Drag to rotate · 3D viewer by <a href="https://www.innerscene.com/tools/solidworks-viewer" target="_blank" rel="noopener" style="color:inherit">Innerscene</a>';
-  frag.append(frame, hint);
+  frag.append(frame);
   return frag;
 }
 

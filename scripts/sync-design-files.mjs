@@ -3,10 +3,13 @@
 // Why: CATIA, AutoCAD and OpenRocket files cannot be opened by a browser, so this script
 // extracts what can be shown: the preview image CATIA/AutoCAD embed in every file, and
 // the rocket geometry stored as XML inside OpenRocket .ork archives (rendered in 2D/3D).
-// CAD source files are never copied to public/. Reports in design-files/pdf/ are published:
+// SolidWorks parts are published and opened in the Innerscene viewer, with the preview PNG
+// saved in the file as the 2D view; STEP models are converted to STL for an interactive 3D view.
+// Other CAD source files are never copied to public/. Reports in design-files/pdf/ are published:
 // PDFs as-is (shown in the browser's PDF viewer), Word files converted to HTML.
 //
 // Usage: node scripts/sync-design-files.mjs
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
@@ -19,6 +22,20 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sourceDir = path.join(root, 'design-files');
 const previewDir = path.join(root, 'public/assets/design-files');
 const modelDir = path.join(sourceDir, 'models');
+const cacheDir = path.join(sourceDir, '.cache');
+
+// Why: finding a SolidWorks preview means probing every byte offset (minutes per run),
+// so results are cached by file content hash.
+function cached(buffer, ext, compute) {
+  const file = path.join(cacheDir, `${crypto.createHash('md5').update(buffer).digest('hex')}.${ext}`);
+  if (fs.existsSync(file)) return fs.readFileSync(file);
+  const value = compute();
+  if (value) {
+    fs.mkdirSync(cacheDir, { recursive: true });
+    fs.writeFileSync(file, value);
+  }
+  return value;
+}
 const manifestPath = path.join(root, 'src/data/design-files/manifest.json');
 
 // High-resolution renders from the CATIA presentation that show the same part as a file.
@@ -51,13 +68,8 @@ const DECK_IMAGES = [
 ];
 
 // Listed so the page shows every file the owner has, but never published.
-// Files kept outside design-files/ (never copied into the app):
-const RESTRICTED = [
-  {
-    name: '3 rd review ppt.pptx',
-    note: 'SATCOM radome review carried out under CABS, DRDO. The results are restricted and confidential, so this file is not published.',
-  },
-];
+// Files kept outside design-files/ (never copied into the app), as { name, note }:
+const RESTRICTED = [];
 // Files inside design-files/ that must be listed but not published, as { 'file name': 'reason' }:
 const RESTRICTED_FILES = {};
 
@@ -70,11 +82,14 @@ const TYPES = {
   '.docx': { group: REPORTS_GROUP, kind: 'Word document', icon: 'file-doc', view: '2d' },
   '.catpart': { group: 'CATIA parts', kind: 'CATIA Part', icon: 'cube', view: '3d' },
   '.catproduct': { group: 'CATIA assemblies', kind: 'CATIA Product (assembly)', icon: 'cube-focus', view: '3d' },
+  '.sldprt': { group: 'SolidWorks parts', kind: 'SolidWorks Part', icon: 'cube', view: '3d' },
+  '.step': { group: 'STEP models', kind: 'STEP 3D model', icon: 'cube-transparent', view: '3d' },
+  '.stp': { group: 'STEP models', kind: 'STEP 3D model', icon: 'cube-transparent', view: '3d' },
   '.dwg': { group: 'AutoCAD drawings', kind: 'AutoCAD Drawing', icon: 'compass-tool', view: '2d' },
   '.ork': { group: 'OpenRocket designs', kind: 'OpenRocket Design', icon: 'rocket-launch', view: 'both' },
   '.pptx': { group: 'Presentations', kind: 'PowerPoint Presentation', icon: 'presentation-chart', view: '2d' },
 };
-const GROUP_ORDER = [REPORTS_GROUP, 'OpenRocket designs', 'CATIA assemblies', 'CATIA parts', 'AutoCAD drawings', 'Presentations'];
+const GROUP_ORDER = [REPORTS_GROUP, 'OpenRocket designs', 'STEP models', 'SolidWorks parts', 'CATIA assemblies', 'CATIA parts', 'AutoCAD drawings', 'Presentations'];
 
 function slugify(name) {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -83,7 +98,7 @@ function slugify(name) {
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) return entry.name === 'models' ? [] : walk(full);
+    if (entry.isDirectory()) return entry.name === 'models' || entry.name === '.cache' ? [] : walk(full);
     return [full];
   });
 }
@@ -224,6 +239,58 @@ async function writePreview(buffer, name, scale) {
   return `/assets/design-files/${name}.webp`;
 }
 
+// SolidWorks 2015+ stores its preview PNG in a raw-deflate section; the section table is
+// obfuscated, so probe each offset and keep the largest PNG that inflates.
+function solidworksPreview(buffer) {
+  const sig = Buffer.from([0x89, 0x50, 0x4e, 0x47]);
+  let best;
+  for (let i = 0; i < buffer.length - 16; i += 1) {
+    let head;
+    try {
+      head = zlib.inflateRawSync(buffer.subarray(i, i + 256), { finishFlush: zlib.constants.Z_SYNC_FLUSH });
+    } catch {
+      continue;
+    }
+    if (head.length < 4 || !head.subarray(0, 4).equals(sig)) continue;
+    const full = zlib.inflateRawSync(buffer.subarray(i), { finishFlush: zlib.constants.Z_SYNC_FLUSH });
+    const end = full.indexOf(Buffer.from('IEND'));
+    const png = end > 0 ? full.subarray(0, end + 8) : full;
+    if (!best || png.length > best.length) best = png;
+    i += 64;
+  }
+  return best;
+}
+
+// STEP → binary STL through OpenCascade (WebAssembly), so the model can be rotated in the browser.
+let occt;
+async function stepToStl(buffer) {
+  occt ??= await (await import('occt-import-js')).default();
+  const result = occt.ReadStepFile(new Uint8Array(buffer), { linearUnit: 'millimeter', linearDeflectionType: 'bounding_box_ratio', linearDeflection: 0.001, angularDeflection: 0.5 });
+  if (!result.success || !result.meshes.length) return undefined;
+  const triangles = result.meshes.reduce((sum, mesh) => sum + mesh.index.array.length / 3, 0);
+  const data = Buffer.alloc(84 + triangles * 50);
+  data.write('Generated by sync-design-files.mjs', 0);
+  data.writeUInt32LE(triangles, 80);
+  let offset = 84;
+  for (const mesh of result.meshes) {
+    const pos = mesh.attributes.position.array;
+    const idx = mesh.index.array;
+    for (let t = 0; t < idx.length; t += 3) {
+      offset += 12; // normal left as zero; the viewer computes normals
+      for (let k = 0; k < 3; k += 1) {
+        const v = idx[t + k] * 3;
+        data.writeFloatLE(pos[v], offset);
+        data.writeFloatLE(pos[v + 1], offset + 4);
+        data.writeFloatLE(pos[v + 2], offset + 8);
+        offset += 12;
+      }
+      offset += 2;
+    }
+  }
+  const parts = [...new Set(result.meshes.map((mesh) => mesh.name).filter((n) => n && n !== 'SOLID'))];
+  return { data, parts };
+}
+
 function pdfPageCount(buffer) {
   const text = buffer.toString('latin1');
   const counts = [...text.matchAll(/\/Type\s*\/Pages\b[^>]*?\/Count\s+(\d+)/g)].map((m) => Number(m[1]));
@@ -294,6 +361,27 @@ for (const full of walk(sourceDir).sort((a, b) => a.localeCompare(b, 'en', { num
     if (fs.existsSync(stl)) {
       fs.copyFileSync(stl, path.join(previewDir, `${id}.stl`));
       entry.model = `/assets/design-files/${id}.stl`;
+    }
+  } else if (ext === '.sldprt') {
+    // File names mark sketches with "2D"; everything else is a solid part.
+    const is2d = /\b2d\b/i.test(name);
+    entry.view = is2d ? '2d' : '3d';
+    entry.kind = is2d ? 'SolidWorks sketch (2D)' : 'SolidWorks part (3D)';
+    // Published so the Innerscene viewer (iframe) can load the real 3D display mesh by URL.
+    fs.copyFileSync(full, path.join(previewDir, `${id}.sldprt`));
+    entry.cad = `/assets/design-files/${id}.sldprt`;
+    const png = cached(buffer, 'png', () => solidworksPreview(buffer));
+    if (png) {
+      const src = await writePreview(png, id, 1);
+      entry.thumbnail = src;
+      entry.images = [{ src, caption: 'Preview saved in the SolidWorks file' }];
+    }
+  } else if (ext === '.step' || ext === '.stp') {
+    const stl = await stepToStl(buffer);
+    if (stl) {
+      fs.writeFileSync(path.join(previewDir, `${id}.stl`), stl.data);
+      entry.model = `/assets/design-files/${id}.stl`;
+      entry.parts = stl.parts;
     }
   } else if (ext === '.dwg') {
     const png = embeddedPng(buffer);

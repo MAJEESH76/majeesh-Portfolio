@@ -26,6 +26,12 @@
     # Netlify zawsze serwuje po HTTPS, więc HSTS jest tu bezpieczny.
     Strict-Transport-Security = "max-age=31536000"
 
+# The Innerscene viewer (iframe on the Files page) fetches SolidWorks files cross-origin.
+[[headers]]
+  for = "/assets/design-files/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+
 [[headers]]
   for = "/assets/images/*"
   [headers.values]

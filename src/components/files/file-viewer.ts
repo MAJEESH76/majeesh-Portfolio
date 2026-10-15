@@ -25,8 +25,10 @@ type FileEntry = {
   images: { src: string; caption: string }[];
   model?: string;
   document?: string;
+  cad?: string;
   html?: string;
   pages?: number;
+  parts?: string[];
   rocket?: Rocket;
   restricted?: boolean;
   note?: string;
@@ -58,6 +60,8 @@ export function initFileExplorer() {
   const available = (file: FileEntry): View[] => {
     if (file.restricted) return [];
     if (file.document || file.html) return ["2d"];
+    // SolidWorks: 2D = preview image saved in the file; 3D = Innerscene viewer (parts only, not sketches).
+    if (file.cad) return file.view === "2d" ? ["2d"] : ["2d", "3d"];
     if (file.rocket) return ["2d", "3d"];
     if (file.view === "3d") return file.images.length || file.model ? ["3d"] : [];
     return file.images.length ? ["2d"] : [];
@@ -132,6 +136,10 @@ export function initFileExplorer() {
         .catch(() => { doc.replaceChildren(message("The document could not be loaded.")); });
       return;
     }
+    if (file.cad && view === "3d") {
+      stage.append(innersceneViewer(file));
+      return;
+    }
     if (file.rocket) {
       if (view === "2d") stage.append(rocketSvg(file.rocket));
       else mount3d(stage, (THREE, scene) => buildRocket(THREE, scene, file.rocket!), "Drag to rotate · scroll to zoom");
@@ -142,11 +150,14 @@ export function initFileExplorer() {
         const { STLLoader } = await import("three/examples/jsm/loaders/STLLoader.js");
         const geometry = await new STLLoader().loadAsync(file.model!);
         geometry.center();
+        // Exported STLs may carry zero normals; recompute so the model is lit correctly.
+        geometry.deleteAttribute("normal");
+        geometry.computeVertexNormals();
         const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: 0xd9d6f2, metalness: 0.2, roughness: 0.45 }));
         geometry.computeBoundingSphere();
         mesh.scale.setScalar(1 / (geometry.boundingSphere?.radius || 1));
         scene.add(mesh);
-        return 1;
+        return 1.5;
       }, "Drag to rotate · scroll to zoom");
       return;
     }
@@ -157,6 +168,7 @@ export function initFileExplorer() {
     const rows: [string, string][] = [["Format", file.ext], ["Type", file.group]];
     if (file.size) rows.push(["Size", file.size >= 1048576 ? `${(file.size / 1048576).toFixed(1)} MB` : `${Math.round(file.size / 1024)} KB`]);
     if (file.pages) rows.push(["Pages", String(file.pages)]);
+    if (file.parts?.length) rows.push(["Parts", file.parts.join(", ")]);
     if (file.rocket) {
       const r = file.rocket;
       rows.push(["Length", `${Math.round(r.length * 1000)} mm`], ["Body diameter", `${Math.round(r.diameter * 1000)} mm`]);
@@ -201,6 +213,31 @@ const NOSE_NAMES: Record<string, string> = {
   power: "Power series",
   parabolic: "Parabolic",
 };
+
+// Innerscene's free viewer reads SLDPRT in the visitor's browser (nothing is uploaded).
+// It fetches the file by public URL, so it cannot reach a localhost dev server.
+function innersceneViewer(file: FileEntry) {
+  const frag = document.createDocumentFragment();
+  if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
+    frag.append(gallery(file.images, "Preview"));
+    const note = message("The interactive SolidWorks 3D viewer works on the published site only, because it loads the file from a public URL.");
+    note.classList.add("file-explorer__local-note");
+    frag.append(note);
+    return frag;
+  }
+  const frame = document.createElement("iframe");
+  frame.className = "file-explorer__doc";
+  const model = new URL(file.cad!, window.location.href).href;
+  frame.src = `https://www.innerscene.com/tools/3d-viewer?url=${encodeURIComponent(model)}&embedded=1&tools=1`;
+  frame.title = `3D view of ${file.name}`;
+  frame.allowFullscreen = true;
+  frame.loading = "lazy";
+  const hint = document.createElement("p");
+  hint.className = "file-explorer__hint";
+  hint.innerHTML = 'Drag to rotate · 3D viewer by <a href="https://www.innerscene.com/tools/solidworks-viewer" target="_blank" rel="noopener" style="color:inherit">Innerscene</a>';
+  frag.append(frame, hint);
+  return frag;
+}
 
 function message(text: string) {
   const p = document.createElement("p");

@@ -2,6 +2,8 @@
   "groups": [
     "Reports and documents",
     "OpenRocket designs",
+    "STEP models",
+    "SolidWorks parts",
     "CATIA assemblies",
     "CATIA parts",
     "AutoCAD drawings",
@@ -410,6 +412,438 @@
           }
         ]
       }
+    },
+    {
+      "id": "cryo-engine-2-full-model-v7-step",
+      "name": "cryo engine 2 full model v7.step",
+      "ext": "STEP",
+      "group": "STEP models",
+      "kind": "STEP 3D model",
+      "icon": "cube-transparent",
+      "view": "3d",
+      "size": 1015940,
+      "images": [],
+      "model": "/assets/design-files/cryo-engine-2-full-model-v7-step.stl",
+      "parts": [
+        "4464K213_304 Stainless Steel Threaded Pipe Fitting (1)",
+        "injector plate",
+        "injector assembly1",
+        "kerosine inlet"
+      ]
+    },
+    {
+      "id": "dersign-17-3d-sldprt",
+      "name": "dersign 17 3D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks part (3D)",
+      "icon": "cube",
+      "view": "3d",
+      "size": 412803,
+      "images": [
+        {
+          "src": "/assets/design-files/dersign-17-3d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/dersign-17-3d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/dersign-17-3d-sldprt.webp"
+    },
+    {
+      "id": "design-1-2d-sldprt",
+      "name": "design 1 2D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks sketch (2D)",
+      "icon": "cube",
+      "view": "2d",
+      "size": 73901,
+      "images": [
+        {
+          "src": "/assets/design-files/design-1-2d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-1-2d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-1-2d-sldprt.webp"
+    },
+    {
+      "id": "design-1-3d-sldprt",
+      "name": "design 1 3D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks part (3D)",
+      "icon": "cube",
+      "view": "3d",
+      "size": 105688,
+      "images": [
+        {
+          "src": "/assets/design-files/design-1-3d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-1-3d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-1-3d-sldprt.webp"
+    },
+    {
+      "id": "design-2-2d-sldprt",
+      "name": "design 2 2D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks sketch (2D)",
+      "icon": "cube",
+      "view": "2d",
+      "size": 70407,
+      "images": [
+        {
+          "src": "/assets/design-files/design-2-2d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-2-2d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-2-2d-sldprt.webp"
+    },
+    {
+      "id": "design-2-3d-sldprt",
+      "name": "design 2 3D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks part (3D)",
+      "icon": "cube",
+      "view": "3d",
+      "size": 106436,
+      "images": [
+        {
+          "src": "/assets/design-files/design-2-3d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-2-3d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-2-3d-sldprt.webp"
+    },
+    {
+      "id": "design-3-2d-sldprt",
+      "name": "design 3 2D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks sketch (2D)",
+      "icon": "cube",
+      "view": "2d",
+      "size": 60879,
+      "images": [
+        {
+          "src": "/assets/design-files/design-3-2d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-3-2d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-3-2d-sldprt.webp"
+    },
+    {
+      "id": "design-3-3d-sldprt",
+      "name": "design 3 3D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks part (3D)",
+      "icon": "cube",
+      "view": "3d",
+      "size": 76216,
+      "images": [
+        {
+          "src": "/assets/design-files/design-3-3d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-3-3d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-3-3d-sldprt.webp"
+    },
+    {
+      "id": "design-4-2d-sldprt",
+      "name": "design 4 2D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks sketch (2D)",
+      "icon": "cube",
+      "view": "2d",
+      "size": 71335,
+      "images": [
+        {
+          "src": "/assets/design-files/design-4-2d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-4-2d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-4-2d-sldprt.webp"
+    },
+    {
+      "id": "design-4-3d-sldprt",
+      "name": "DESIGN 4 3D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks part (3D)",
+      "icon": "cube",
+      "view": "3d",
+      "size": 101825,
+      "images": [
+        {
+          "src": "/assets/design-files/design-4-3d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-4-3d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-4-3d-sldprt.webp"
+    },
+    {
+      "id": "design-5-2d-sldprt",
+      "name": "design 5 2D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks sketch (2D)",
+      "icon": "cube",
+      "view": "2d",
+      "size": 80292,
+      "images": [
+        {
+          "src": "/assets/design-files/design-5-2d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-5-2d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-5-2d-sldprt.webp"
+    },
+    {
+      "id": "design-5-3d-sldprt",
+      "name": "design 5 3D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks part (3D)",
+      "icon": "cube",
+      "view": "3d",
+      "size": 88381,
+      "images": [
+        {
+          "src": "/assets/design-files/design-5-3d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-5-3d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-5-3d-sldprt.webp"
+    },
+    {
+      "id": "design-6-2d-sldprt",
+      "name": "design 6 2D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks sketch (2D)",
+      "icon": "cube",
+      "view": "2d",
+      "size": 93930,
+      "images": [
+        {
+          "src": "/assets/design-files/design-6-2d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-6-2d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-6-2d-sldprt.webp"
+    },
+    {
+      "id": "design-6-3d-sldprt",
+      "name": "design 6 3D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks part (3D)",
+      "icon": "cube",
+      "view": "3d",
+      "size": 99347,
+      "images": [
+        {
+          "src": "/assets/design-files/design-6-3d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-6-3d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-6-3d-sldprt.webp"
+    },
+    {
+      "id": "design-7-2d-sldprt",
+      "name": "design 7 2D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks sketch (2D)",
+      "icon": "cube",
+      "view": "2d",
+      "size": 87182,
+      "images": [
+        {
+          "src": "/assets/design-files/design-7-2d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-7-2d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-7-2d-sldprt.webp"
+    },
+    {
+      "id": "design-7-3d-sldprt",
+      "name": "design 7 3d.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks part (3D)",
+      "icon": "cube",
+      "view": "3d",
+      "size": 159963,
+      "images": [
+        {
+          "src": "/assets/design-files/design-7-3d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-7-3d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-7-3d-sldprt.webp"
+    },
+    {
+      "id": "design-8-3d-sldprt",
+      "name": "design 8 3D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks part (3D)",
+      "icon": "cube",
+      "view": "3d",
+      "size": 251480,
+      "images": [
+        {
+          "src": "/assets/design-files/design-8-3d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-8-3d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-8-3d-sldprt.webp"
+    },
+    {
+      "id": "design-9-3d-allen-key-sldprt",
+      "name": "design 9 3D ALLEN KEY.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks part (3D)",
+      "icon": "cube",
+      "view": "3d",
+      "size": 59074,
+      "images": [
+        {
+          "src": "/assets/design-files/design-9-3d-allen-key-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-9-3d-allen-key-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-9-3d-allen-key-sldprt.webp"
+    },
+    {
+      "id": "design-10-3d-sldprt",
+      "name": "design 10 3D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks part (3D)",
+      "icon": "cube",
+      "view": "3d",
+      "size": 85653,
+      "images": [
+        {
+          "src": "/assets/design-files/design-10-3d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-10-3d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-10-3d-sldprt.webp"
+    },
+    {
+      "id": "design-11-3d-sldprt",
+      "name": "design 11 3D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks part (3D)",
+      "icon": "cube",
+      "view": "3d",
+      "size": 180501,
+      "images": [
+        {
+          "src": "/assets/design-files/design-11-3d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-11-3d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-11-3d-sldprt.webp"
+    },
+    {
+      "id": "design-12-3d-sldprt",
+      "name": "design 12 3D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks part (3D)",
+      "icon": "cube",
+      "view": "3d",
+      "size": 241973,
+      "images": [
+        {
+          "src": "/assets/design-files/design-12-3d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-12-3d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-12-3d-sldprt.webp"
+    },
+    {
+      "id": "design-13-3d-sldprt",
+      "name": "design 13 3D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks part (3D)",
+      "icon": "cube",
+      "view": "3d",
+      "size": 206657,
+      "images": [
+        {
+          "src": "/assets/design-files/design-13-3d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-13-3d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-13-3d-sldprt.webp"
+    },
+    {
+      "id": "design-14-3d-sldprt",
+      "name": "design 14 3D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks part (3D)",
+      "icon": "cube",
+      "view": "3d",
+      "size": 372633,
+      "images": [
+        {
+          "src": "/assets/design-files/design-14-3d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-14-3d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-14-3d-sldprt.webp"
+    },
+    {
+      "id": "design-15-3d-sldprt",
+      "name": "design 15 3D.SLDPRT",
+      "ext": "SLDPRT",
+      "group": "SolidWorks parts",
+      "kind": "SolidWorks part (3D)",
+      "icon": "cube",
+      "view": "3d",
+      "size": 168960,
+      "images": [
+        {
+          "src": "/assets/design-files/design-15-3d-sldprt.webp",
+          "caption": "Preview saved in the SolidWorks file"
+        }
+      ],
+      "cad": "/assets/design-files/design-15-3d-sldprt.sldprt",
+      "thumbnail": "/assets/design-files/design-15-3d-sldprt.webp"
     },
     {
       "id": "catia-12-full-catproduct",
@@ -966,18 +1400,6 @@
         }
       ],
       "thumbnail": "/assets/design-files/drawing3dwg-cad-dwg.webp"
-    },
-    {
-      "id": "3-rd-review-ppt-pptx",
-      "name": "3 rd review ppt.pptx",
-      "ext": "PPTX",
-      "group": "Presentations",
-      "kind": "PowerPoint Presentation",
-      "icon": "lock-simple",
-      "view": "none",
-      "restricted": true,
-      "note": "SATCOM radome review carried out under CABS, DRDO. The results are restricted and confidential, so this file is not published.",
-      "images": []
     },
     {
       "id": "catia-design-files-pptx",

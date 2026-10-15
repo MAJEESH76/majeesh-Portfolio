@@ -20,6 +20,7 @@ const ICONS: Record<string, string> = {
   "lock-simple": "ph ph-lock-simple",
   "file-pdf": "ph ph-file-pdf",
   "file-doc": "ph ph-file-doc",
+  "cube-transparent": "ph ph-cube-transparent",
 };
 
 const groups = manifest.groups
@@ -39,7 +40,7 @@ const first = manifest.files.find((file) => !(file as FileEntry & { restricted?:
       <Text tag="p" variant="accent-label">Prototype files</Text>
       <Heading tag="h1" variant="section-title">Design files</Heading>
       <Text variant="lead" class="max-w-3xl">
-        My project reports and every CAD, drawing and rocket file from my design folder. Pick a file on the left to see it on the right in 2D or 3D.
+        My project reports and every CATIA, SolidWorks, STEP, AutoCAD and OpenRocket file from my design folder. Pick a file on the left to see it on the right in 2D or 3D.
       </Text>
     </div>
 
@@ -385,6 +386,18 @@ const first = manifest.files.find((file) => !(file as FileEntry & { restricted?:
     border-radius: 999px;
     background: rgb(0 0 0 / 0.45);
     font-size: 0.75rem;
+  }
+
+  .file-explorer__stage :global(.file-explorer__local-note) {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    left: 0.75rem;
+    max-width: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    background: rgb(0 0 0 / 0.55);
+    font-size: 0.8rem;
   }
 
   .file-explorer__stage :global(.file-explorer__thumbs) {

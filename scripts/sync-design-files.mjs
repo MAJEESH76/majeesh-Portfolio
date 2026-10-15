@@ -3,7 +3,8 @@
 // Why: CATIA, AutoCAD and OpenRocket files cannot be opened by a browser, so this script
 // extracts what can be shown: the preview image CATIA/AutoCAD embed in every file, and
 // the rocket geometry stored as XML inside OpenRocket .ork archives (rendered in 2D/3D).
-// The source files themselves are never copied to public/.
+// CAD source files are never copied to public/. Reports in design-files/pdf/ are published:
+// PDFs as-is (shown in the browser's PDF viewer), Word files converted to HTML.
 //
 // Usage: node scripts/sync-design-files.mjs
 import fs from 'node:fs';
@@ -12,6 +13,7 @@ import zlib from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import * as cheerio from 'cheerio';
+import mammoth from 'mammoth';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sourceDir = path.join(root, 'design-files');
@@ -49,21 +51,33 @@ const DECK_IMAGES = [
 ];
 
 // Listed so the page shows every file the owner has, but never published.
+// Files kept outside design-files/ (never copied into the app):
 const RESTRICTED = [
   {
     name: '3 rd review ppt.pptx',
     note: 'SATCOM radome review carried out under CABS, DRDO. The results are restricted and confidential, so this file is not published.',
   },
 ];
+// Files inside design-files/ that must not be published:
+const RESTRICTED_FILES = {
+  'Majeesh report final.pdf': 'Internship report on the thermal and structural analysis of a SATCOM radome at the Centre for Airborne Systems, DRDO. The work is restricted and confidential, so this report is not published.',
+  'Visual and Physical Inspection .pptx': 'Inspection procedures and part photographs from the internship at the Centre for Airborne Systems, DRDO. Not published because the material belongs to the organisation.',
+};
+
+// Everything in design-files/pdf/ is shown first, as one group, whatever its format.
+const REPORTS_FOLDER = 'pdf';
+const REPORTS_GROUP = 'Reports and documents';
 
 const TYPES = {
+  '.pdf': { group: REPORTS_GROUP, kind: 'PDF document', icon: 'file-pdf', view: '2d' },
+  '.docx': { group: REPORTS_GROUP, kind: 'Word document', icon: 'file-doc', view: '2d' },
   '.catpart': { group: 'CATIA parts', kind: 'CATIA Part', icon: 'cube', view: '3d' },
   '.catproduct': { group: 'CATIA assemblies', kind: 'CATIA Product (assembly)', icon: 'cube-focus', view: '3d' },
   '.dwg': { group: 'AutoCAD drawings', kind: 'AutoCAD Drawing', icon: 'compass-tool', view: '2d' },
   '.ork': { group: 'OpenRocket designs', kind: 'OpenRocket Design', icon: 'rocket-launch', view: 'both' },
   '.pptx': { group: 'Presentations', kind: 'PowerPoint Presentation', icon: 'presentation-chart', view: '2d' },
 };
-const GROUP_ORDER = ['OpenRocket designs', 'CATIA assemblies', 'CATIA parts', 'AutoCAD drawings', 'Presentations'];
+const GROUP_ORDER = [REPORTS_GROUP, 'OpenRocket designs', 'CATIA assemblies', 'CATIA parts', 'AutoCAD drawings', 'Presentations'];
 
 function slugify(name) {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -213,6 +227,30 @@ async function writePreview(buffer, name, scale) {
   return `/assets/design-files/${name}.webp`;
 }
 
+function pdfPageCount(buffer) {
+  const text = buffer.toString('latin1');
+  const counts = [...text.matchAll(/\/Type\s*\/Pages\b[^>]*?\/Count\s+(\d+)/g)].map((m) => Number(m[1]));
+  return Math.max(0, ...counts) || (text.match(/\/Type\s*\/Page[^s]/g) ?? []).length || undefined;
+}
+
+// Word → HTML fragment with its images saved as WebP next to it.
+async function convertDocx(file, id) {
+  const imageDir = path.join(previewDir, id);
+  fs.mkdirSync(imageDir, { recursive: true });
+  let count = 0;
+  const { value } = await mammoth.convertToHtml({ path: file }, {
+    convertImage: mammoth.images.imgElement(async (image) => {
+      if (!/^image\/(png|jpe?g|gif|bmp|webp)$/.test(image.contentType)) return { src: '' };
+      count += 1;
+      const out = `img-${String(count).padStart(2, '0')}.webp`;
+      await sharp(await image.read()).resize({ width: 1400, withoutEnlargement: true }).webp({ quality: 82 }).toFile(path.join(imageDir, out));
+      return { src: `/assets/design-files/${id}/${out}`, loading: 'lazy' };
+    }),
+  });
+  fs.writeFileSync(path.join(previewDir, `${id}.html`), `<div class="docx">${value.replace(/<img src="">/g, '')}</div>\n`);
+  return `/assets/design-files/${id}.html`;
+}
+
 // design-files/ is git-ignored, so a fresh clone keeps the committed manifest and previews.
 if (!fs.existsSync(sourceDir)) {
   console.log('design-files: no design-files/ folder, keeping the existing manifest.');
@@ -236,9 +274,21 @@ for (const full of walk(sourceDir).sort((a, b) => a.localeCompare(b, 'en', { num
   usedIds.add(id);
 
   const buffer = fs.readFileSync(full);
-  const entry = { id, name, ext: ext.slice(1).toUpperCase(), group: type.group, kind: type.kind, icon: type.icon, view: type.view, size: buffer.length, images: [] };
+  const inReports = path.relative(sourceDir, full).split(path.sep)[0] === REPORTS_FOLDER;
+  const entry = { id, name, ext: ext.slice(1).toUpperCase(), group: inReports ? REPORTS_GROUP : type.group, kind: type.kind, icon: type.icon, view: type.view, size: buffer.length, images: [] };
 
-  if (ext === '.catpart' || ext === '.catproduct') {
+  if (RESTRICTED_FILES[name]) {
+    files.push({ ...entry, icon: 'lock-simple', view: 'none', restricted: true, note: RESTRICTED_FILES[name] });
+    continue;
+  }
+
+  if (ext === '.pdf') {
+    fs.copyFileSync(full, path.join(previewDir, `${id}.pdf`));
+    entry.document = `/assets/design-files/${id}.pdf`;
+    entry.pages = pdfPageCount(buffer);
+  } else if (ext === '.docx') {
+    entry.html = await convertDocx(full, id);
+  } else if (ext === '.catpart' || ext === '.catproduct') {
     const jpeg = embeddedJpeg(buffer);
     if (jpeg) entry.thumbnail = await writePreview(jpeg, id, 1);
     entry.images = (HIRES[name] ?? []).map((img) => ({ src: `${DESIGN_IMG}${img}.webp`, caption: 'Rendered in CATIA' }));
@@ -259,7 +309,7 @@ for (const full of walk(sourceDir).sort((a, b) => a.localeCompare(b, 'en', { num
   } else if (ext === '.ork') {
     const xml = readZipEntry(buffer, 'rocket.ork');
     if (xml) entry.rocket = parseRocket(xml.toString('utf8'));
-  } else if (ext === '.pptx') {
+  } else if (ext === '.pptx' && name === 'catia design files.pptx') {
     entry.images = DECK_IMAGES.map(([img, caption]) => ({ src: `${DESIGN_IMG}${img}.webp`, caption }));
     entry.thumbnail = `${DESIGN_IMG}catia-drone-design-2@480.webp`;
   }

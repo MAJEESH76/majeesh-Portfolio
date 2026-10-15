@@ -24,6 +24,9 @@ type FileEntry = {
   size?: number;
   images: { src: string; caption: string }[];
   model?: string;
+  document?: string;
+  html?: string;
+  pages?: number;
   rocket?: Rocket;
   restricted?: boolean;
   note?: string;
@@ -45,6 +48,7 @@ export function initFileExplorer() {
   const kind = root.querySelector<HTMLElement>("[data-viewer-kind]")!;
   const facts = root.querySelector<HTMLElement>("[data-viewer-facts]")!;
   const note = root.querySelector<HTMLElement>("[data-viewer-note]")!;
+  const openLink = root.querySelector<HTMLAnchorElement>("[data-viewer-open]")!;
   const items = [...root.querySelectorAll<HTMLButtonElement>("[data-file-id]")];
   const tabs = [...root.querySelectorAll<HTMLButtonElement>("[data-view-tab]")];
 
@@ -53,6 +57,7 @@ export function initFileExplorer() {
 
   const available = (file: FileEntry): View[] => {
     if (file.restricted) return [];
+    if (file.document || file.html) return ["2d"];
     if (file.rocket) return ["2d", "3d"];
     if (file.view === "3d") return file.images.length || file.model ? ["3d"] : [];
     return file.images.length ? ["2d"] : [];
@@ -76,6 +81,9 @@ export function initFileExplorer() {
 
     renderFacts(file);
     note.textContent = file.restricted ? file.note ?? "" : "";
+    // Phones often can't show a PDF inside the page, so always offer it in a new tab.
+    openLink.hidden = !file.document;
+    if (file.document) openLink.href = file.document;
     render();
 
     const url = new URL(window.location.href);
@@ -103,6 +111,27 @@ export function initFileExplorer() {
       stage.append(message("No preview is available for this file."));
       return;
     }
+    if (file.document) {
+      const frame = document.createElement("iframe");
+      frame.className = "file-explorer__doc";
+      frame.src = `${file.document}#view=FitH`;
+      frame.title = file.name;
+      stage.append(frame);
+      return;
+    }
+    if (file.html) {
+      const doc = document.createElement("article");
+      doc.className = "file-explorer__doc file-explorer__docx";
+      doc.append(message("Loading document…"));
+      stage.append(doc);
+      const requested = file;
+      fetch(file.html)
+        .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
+        // Trusted: generated at build time from my own Word files by scripts/sync-design-files.mjs.
+        .then((html) => { if (current === requested) doc.innerHTML = html; })
+        .catch(() => { doc.replaceChildren(message("The document could not be loaded.")); });
+      return;
+    }
     if (file.rocket) {
       if (view === "2d") stage.append(rocketSvg(file.rocket));
       else mount3d(stage, (THREE, scene) => buildRocket(THREE, scene, file.rocket!), "Drag to rotate · scroll to zoom");
@@ -127,6 +156,7 @@ export function initFileExplorer() {
   function renderFacts(file: FileEntry) {
     const rows: [string, string][] = [["Format", file.ext], ["Type", file.group]];
     if (file.size) rows.push(["Size", file.size >= 1048576 ? `${(file.size / 1048576).toFixed(1)} MB` : `${Math.round(file.size / 1024)} KB`]);
+    if (file.pages) rows.push(["Pages", String(file.pages)]);
     if (file.rocket) {
       const r = file.rocket;
       rows.push(["Length", `${Math.round(r.length * 1000)} mm`], ["Body diameter", `${Math.round(r.diameter * 1000)} mm`]);

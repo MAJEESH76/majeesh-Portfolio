@@ -1,5 +1,6 @@
 {
   "groups": [
+    "Reports and documents",
     "OpenRocket designs",
     "CATIA assemblies",
     "CATIA parts",
@@ -7,6 +8,119 @@
     "Presentations"
   ],
   "files": [
+    {
+      "id": "design-and-cfd-analysis-of-radiator-by-using-ansys-5-pdf",
+      "name": "Design and CFD Analysis of Radiator by Using Ansys (5).pdf",
+      "ext": "PDF",
+      "group": "Reports and documents",
+      "kind": "PDF document",
+      "icon": "file-pdf",
+      "view": "2d",
+      "size": 7674415,
+      "images": [],
+      "document": "/assets/design-files/design-and-cfd-analysis-of-radiator-by-using-ansys-5-pdf.pdf",
+      "pages": 15
+    },
+    {
+      "id": "drone-internship-report-pdf",
+      "name": "DRONE INTERNSHIP REPORT.pdf",
+      "ext": "PDF",
+      "group": "Reports and documents",
+      "kind": "PDF document",
+      "icon": "file-pdf",
+      "view": "2d",
+      "size": 1008386,
+      "images": [],
+      "document": "/assets/design-files/drone-internship-report-pdf.pdf",
+      "pages": 19
+    },
+    {
+      "id": "ethylene-glycol-and-water-various-combination-docx",
+      "name": "ethylene glycol and water various combination.docx",
+      "ext": "DOCX",
+      "group": "Reports and documents",
+      "kind": "Word document",
+      "icon": "file-doc",
+      "view": "2d",
+      "size": 2811502,
+      "images": [],
+      "html": "/assets/design-files/ethylene-glycol-and-water-various-combination-docx.html"
+    },
+    {
+      "id": "ethylene-glycol-results-steady-analysis-for-120-80-180-docx",
+      "name": "Ethylene glycol results steady analysis for 120,80,180.docx",
+      "ext": "DOCX",
+      "group": "Reports and documents",
+      "kind": "Word document",
+      "icon": "file-doc",
+      "view": "2d",
+      "size": 1518950,
+      "images": [],
+      "html": "/assets/design-files/ethylene-glycol-results-steady-analysis-for-120-80-180-docx.html"
+    },
+    {
+      "id": "majeesh-report-final-pdf",
+      "name": "Majeesh report final.pdf",
+      "ext": "PDF",
+      "group": "Reports and documents",
+      "kind": "PDF document",
+      "icon": "lock-simple",
+      "view": "none",
+      "size": 32112618,
+      "images": [],
+      "restricted": true,
+      "note": "Internship report on the thermal and structural analysis of a SATCOM radome at the Centre for Airborne Systems, DRDO. The work is restricted and confidential, so this report is not published."
+    },
+    {
+      "id": "ndt-project-report-final-pdf",
+      "name": "ndt project report final.pdf",
+      "ext": "PDF",
+      "group": "Reports and documents",
+      "kind": "PDF document",
+      "icon": "file-pdf",
+      "view": "2d",
+      "size": 476587,
+      "images": [],
+      "document": "/assets/design-files/ndt-project-report-final-pdf.pdf",
+      "pages": 15
+    },
+    {
+      "id": "rockets-missiles-final-1-report-final-docx",
+      "name": "Rockets&missiles_final[1] report final.docx",
+      "ext": "DOCX",
+      "group": "Reports and documents",
+      "kind": "Word document",
+      "icon": "file-doc",
+      "view": "2d",
+      "size": 2393042,
+      "images": [],
+      "html": "/assets/design-files/rockets-missiles-final-1-report-final-docx.html"
+    },
+    {
+      "id": "steady-radiator-analysis-of-various-fluid-120-docx",
+      "name": "steady radiator analysis of various fluid 120.docx",
+      "ext": "DOCX",
+      "group": "Reports and documents",
+      "kind": "Word document",
+      "icon": "file-doc",
+      "view": "2d",
+      "size": 3284029,
+      "images": [],
+      "html": "/assets/design-files/steady-radiator-analysis-of-various-fluid-120-docx.html"
+    },
+    {
+      "id": "visual-and-physical-inspection-pptx",
+      "name": "Visual and Physical Inspection .pptx",
+      "ext": "PPTX",
+      "group": "Reports and documents",
+      "kind": "PowerPoint Presentation",
+      "icon": "lock-simple",
+      "view": "none",
+      "size": 22675705,
+      "images": [],
+      "restricted": true,
+      "note": "Inspection procedures and part photographs from the internship at the Centre for Airborne Systems, DRDO. Not published because the material belongs to the organisation."
+    },
     {
       "id": "rocket-and-missiles-2-single-deployment-ork",
       "name": "rocket and missiles 2 single deployment.ork",

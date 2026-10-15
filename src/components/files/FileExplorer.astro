@@ -18,6 +18,8 @@ const ICONS: Record<string, string> = {
   "rocket-launch": "ph ph-rocket-launch",
   "presentation-chart": "ph ph-presentation-chart",
   "lock-simple": "ph ph-lock-simple",
+  "file-pdf": "ph ph-file-pdf",
+  "file-doc": "ph ph-file-doc",
 };
 
 const groups = manifest.groups
@@ -37,7 +39,7 @@ const first = manifest.files.find((file) => !(file as FileEntry & { restricted?:
       <Text tag="p" variant="accent-label">Prototype files</Text>
       <Heading tag="h1" variant="section-title">Design files</Heading>
       <Text variant="lead" class="max-w-3xl">
-        Every CAD, drawing and rocket file from my design folder. Pick a file on the left to see it on the right in 2D or 3D.
+        My project reports and every CAD, drawing and rocket file from my design folder. Pick a file on the left to see it on the right in 2D or 3D.
       </Text>
     </div>
 
@@ -73,6 +75,9 @@ const first = manifest.files.find((file) => !(file as FileEntry & { restricted?:
             <p class="file-explorer__title" data-viewer-title>{first.name}</p>
             <p class="file-explorer__kind" data-viewer-kind>{first.kind}</p>
           </div>
+          <a class="file-explorer__open" data-viewer-open href="#" target="_blank" rel="noopener" hidden>
+            <i class="ph ph-arrow-square-out" aria-hidden="true"></i>Open PDF
+          </a>
           <div class="file-explorer__tabs" role="tablist" aria-label="View mode">
             <button type="button" role="tab" data-view-tab="2d" aria-selected="false">2D</button>
             <button type="button" role="tab" data-view-tab="3d" aria-selected="false">3D</button>
@@ -295,6 +300,71 @@ const first = manifest.files.find((file) => !(file as FileEntry & { restricted?:
     width: 100%;
     height: auto;
     max-height: clamp(18rem, 55vw, 34rem);
+  }
+
+  .file-explorer__stage:has(:global(.file-explorer__doc)) {
+    place-items: stretch;
+    background: var(--color-surface-container);
+  }
+
+  .file-explorer__stage :global(.file-explorer__doc) {
+    width: 100%;
+    height: clamp(26rem, 70vh, 48rem);
+    border: 0;
+    background: var(--color-surface-bright);
+  }
+
+  .file-explorer__stage :global(.file-explorer__docx) {
+    overflow-y: auto;
+    padding: clamp(1.25rem, 4vw, 3rem);
+    color: var(--color-on-surface);
+    line-height: 1.6;
+    overscroll-behavior: contain;
+  }
+
+  .file-explorer__stage :global(.file-explorer__docx img) {
+    max-width: 100%;
+    max-height: none;
+    height: auto;
+    margin: 1rem auto;
+    border-radius: 0.375rem;
+  }
+
+  .file-explorer__stage :global(.file-explorer__docx table) {
+    width: 100%;
+    margin: 1rem 0;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .file-explorer__stage :global(.file-explorer__docx td),
+  .file-explorer__stage :global(.file-explorer__docx th) {
+    padding: 0.375rem 0.5rem;
+    border: 1px solid var(--color-outline-variant);
+  }
+
+  .file-explorer__open {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    min-height: 2.25rem;
+    margin-left: auto;
+    padding: 0 0.875rem;
+    border: 1px solid var(--color-outline);
+    border-radius: 999px;
+    color: var(--color-on-surface);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .file-explorer__open:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .file-explorer__open[hidden] {
+    display: none;
   }
 
   .file-explorer__placeholder {

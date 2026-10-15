@@ -68,6 +68,10 @@ The output is written to `dist/`. Every push to `main` builds and deploys the si
 
 **First-time setup on GitHub:** open the repository's **Settings → Pages** and set **Source** to **GitHub Actions**.
 
+### Netlify
+
+`netlify.toml` builds with `npm run build:netlify`, which serves the site from the domain root and marks it noindex (GitHub Pages stays the indexed site). Connect the Netlify site to this repository, or run `npm run build:netlify` and drag the `dist/` folder onto the Netlify deploys page. Do not upload a `build:github` output to Netlify: its links start with `/majeesh-Portfolio/`.
+
 If the repository is renamed or a custom domain is used, update `SITE_URL` in `site.config.mjs` and `PUBLIC_BASE_PATH` / `PUBLIC_SITE_URL` in `scripts/build-github.mjs`.
 
 ## Contact

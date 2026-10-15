@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "npm run build:netlify"
   publish = "dist"
 
 [build.environment]
@@ -7,12 +7,12 @@
 
 # Preview deployment — kazdy branch to osobna domena
 [context.deploy-preview]
-  command = "npm run build"
+  command = "npm run build:netlify"
   publish = "dist"
 
 # Branch deploy — dla staging/produkcja
 [context.branch-deploy]
-  command = "npm run build"
+  command = "npm run build:netlify"
   publish = "dist"
 
 [[headers]]

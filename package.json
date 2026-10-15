@@ -51,6 +51,7 @@
     "build:prod": "npm run build",
     "build:preview": "node scripts/build-preview.mjs",
     "build:github": "node scripts/build-github.mjs",
+    "build:netlify": "node scripts/build-netlify.mjs",
     "package:marketplace": "node scripts/package-marketplace.mjs",
     "qa": "tsx src/scripts/run-qa.ts qa",
     "qa:strict": "tsx src/scripts/run-qa.ts strict",

@@ -377,6 +377,9 @@ for (const full of walk(sourceDir).sort((a, b) => a.localeCompare(b, 'en', { num
       entry.images = [{ src, caption: 'Preview saved in the SolidWorks file' }];
     }
   } else if (ext === '.step' || ext === '.stp') {
+    // Innerscene reads STEP natively (smooth shading); the STL is the local/offline fallback.
+    fs.copyFileSync(full, path.join(previewDir, `${id}${ext}`));
+    entry.cad = `/assets/design-files/${id}${ext}`;
     const stl = await stepToStl(buffer);
     if (stl) {
       fs.writeFileSync(path.join(previewDir, `${id}.stl`), stl.data);

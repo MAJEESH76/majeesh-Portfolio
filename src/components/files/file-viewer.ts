@@ -60,8 +60,11 @@ export function initFileExplorer() {
   const available = (file: FileEntry): View[] => {
     if (file.restricted) return [];
     if (file.document || file.html) return ["2d"];
-    // SolidWorks: 2D = preview image saved in the file; 3D = Innerscene viewer (parts only, not sketches).
-    if (file.cad) return file.view === "2d" ? ["2d"] : ["2d", "3d"];
+    // SolidWorks/STEP: 2D = preview image saved in the file; 3D = Innerscene viewer (not for sketches).
+    if (file.cad) {
+      if (file.view === "2d") return ["2d"];
+      return file.images.length ? ["2d", "3d"] : ["3d"];
+    }
     if (file.rocket) return ["2d", "3d"];
     if (file.view === "3d") return file.images.length || file.model ? ["3d"] : [];
     return file.images.length ? ["2d"] : [];
@@ -136,7 +139,7 @@ export function initFileExplorer() {
         .catch(() => { doc.replaceChildren(message("The document could not be loaded.")); });
       return;
     }
-    if (file.cad && view === "3d") {
+    if (file.cad && view === "3d" && !(isLocalHost() && file.model)) {
       stage.append(innersceneViewer(file));
       return;
     }
@@ -216,9 +219,13 @@ const NOSE_NAMES: Record<string, string> = {
 
 // Innerscene's free viewer reads SLDPRT in the visitor's browser (nothing is uploaded).
 // It fetches the file by public URL, so it cannot reach a localhost dev server.
+function isLocalHost() {
+  return ["localhost", "127.0.0.1"].includes(window.location.hostname);
+}
+
 function innersceneViewer(file: FileEntry) {
   const frag = document.createDocumentFragment();
-  if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
+  if (isLocalHost()) {
     frag.append(gallery(file.images, "Preview"));
     const note = message("The interactive SolidWorks 3D viewer works on the published site only, because it loads the file from a public URL.");
     note.classList.add("file-explorer__local-note");
@@ -228,10 +235,10 @@ function innersceneViewer(file: FileEntry) {
   const frame = document.createElement("iframe");
   frame.className = "file-explorer__doc";
   const model = new URL(file.cad!, window.location.href).href;
-  frame.src = `https://www.innerscene.com/tools/3d-viewer?url=${encodeURIComponent(model)}&embedded=1&tools=1`;
+  const tool = file.ext === "SLDPRT" ? "solidworks-viewer" : "3d-viewer";
+  frame.src = `https://www.innerscene.com/tools/${tool}?url=${encodeURIComponent(model)}&embedded=1`;
   frame.title = `3D view of ${file.name}`;
   frame.allowFullscreen = true;
-  frame.loading = "lazy";
   const hint = document.createElement("p");
   hint.className = "file-explorer__hint";
   hint.innerHTML = 'Drag to rotate · 3D viewer by <a href="https://www.innerscene.com/tools/solidworks-viewer" target="_blank" rel="noopener" style="color:inherit">Innerscene</a>';
